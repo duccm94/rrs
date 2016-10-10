@@ -71,7 +71,7 @@ en:
     book:
       index:
         search: "Search"
-        valuesearch: "Title, author, category"
+        valuesearch: "Name, address, category"
         ratesearch: "Rate score"
         by: "by: "
         ratescore: "Rate score: "
@@ -157,7 +157,7 @@ en:
           adminfunction: "Functions"
       book:
         index:
-          dashboard: "Book Dashboard"
+          dashboard: "Restaurant Dashboard"
           newbookbutton: "New book"
           deletebutton: "Delete"
           editbutton: "Edit"

@@ -6,20 +6,14 @@
       options_for_select(@categories.collect {|c| [c.title, c.id]})%>
   </span>
 
-  <%= f.label :title %>
+  <%= f.label :name %>
   <%= f.text_field :title, class: "form-control" %>
 
-  <%= f.label :author %>
+  <%= f.label :address %>
   <%= f.text_field :author, class: "form-control" %>
-
-  <%= f.label :number_of_pages %>
-  <%= f.number_field :number_of_pages, class: "form-control" %>
-
-  <%= f.label :publish_date %>
-  <%= f.date_field :publish_date, class: "form-control" %>
 
   <%= f.label :image %>
   <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
 
-  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+  <%= f.submit "Create", class: "btn btn-primary" %>
 <% end %>

@@ -9,6 +9,7 @@ User.create(name: "admin", email: "admin@gmail.com", password: "123456789",
   is_admin: true)
 User.create(name: "phanbt", email: "phan@gmail.com", password: "123456",
   password_confirmation: "123456", is_admin: false)
-Category.create(title: "Rails")
-Category.create(title: "Ruby")
-Category.create(title: "Git")
+Category.create(title: "Food")
+Category.create(title: "Drink")
+Category.create(title: "FastFood")
+Category.create(title: "KFC")
