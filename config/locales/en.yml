@@ -38,7 +38,7 @@ en:
       favorite: "Favorited"
       history: "Reading history"
     create:
-      succee: "Welcome to the Book Framgia app!"
+      succee: "Welcome to the Restaurant Review System!"
     update:
       succee: "Your profile updated!"
     login:
@@ -134,7 +134,7 @@ en:
     static_pages:
       contact: "This is contact"
       help: "This is help"
-      home1: "Framgia Books Review System"
+      home1: "Restaurant Review System"
       home:
       signup: "Sign up"
     layouts:
@@ -252,7 +252,7 @@ en:
       name: "Review"
 
   app:
-    bookapp: "Framgia"
+    bookapp: "ITJP3"
     home: "Home"
     help: "Help"
     profile: "Profile"
