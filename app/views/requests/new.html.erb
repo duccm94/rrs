@@ -4,14 +4,11 @@
     <%= form_for @request do |f| %>
       <%= render partial: "shared/error_messages", locals: {object: @request}  %>
 
-      <%= f.label :book_title %>
+      <%= f.label :Name %>
       <%= f.text_field :book_title, class: "form-control" %>
 
-      <%= f.label :book_author %>
+      <%= f.label :address %>
       <%= f.text_field :book_author, class: "form-control" %>
-
-      <%= f.label :content %>
-      <%= f.text_area :content, class: "form-control" %>
 
       <%= f.submit t("views.requests.new.createbutton"), class: "btn btn-primary" %>
     <% end %>

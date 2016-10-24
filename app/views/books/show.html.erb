@@ -3,8 +3,7 @@
     <%= image_tag @book.image.url(:thumb) if @book.image? %>
     <div class="caption">
       <h3><%= link_to @book.title, @book %></h3>
-      <h4><%= t "views.book.show.author" %> <%= @book.author %></h4>
-      <h4><%= t "views.book.show.numberpages" %> <%= @book.number_of_pages %></h4>
+      <h4><%= "Address:" %> <%= @book.author %></h4>
       <h4>
         <%= t "views.book.show.ratescore" %>
         <span class="average-review-rating" data-score="<%= @book.rate_score %>"></span>

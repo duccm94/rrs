@@ -4,9 +4,8 @@
   <tr>
     <th><%= t "views.admin.requests.index.id" %></th>
     <th><%= t "views.admin.requests.index.onwer" %></th>
-    <th><%= t "views.admin.requests.index.book_title" %></th>
-    <th><%= t "views.admin.requests.index.book_author" %></th>
-    <th><%= t "views.admin.requests.index.content" %></th>
+    <th><%= "Name" %></th>
+    <th><%= "Address" %></th>
     <th><%= t "views.admin.user.index.adminfunction" %></th>
   </tr>
   <% @requests.each do |request| %>
@@ -15,7 +14,6 @@
       <td> <%= request.user.name %> </td>
       <td> <%= request.book_title %> </td>
       <td> <%= request.book_author %> </td>
-      <td> <%= request.content %> </td>
       <td>
         <span>
           <%= link_to t("views.admin.requests.index.deletebutton"),

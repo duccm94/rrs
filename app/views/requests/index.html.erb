@@ -3,9 +3,8 @@
 <table class="table table-hover">
   <tr>
     <th><%= t "views.requests.index.id" %></th>
-    <th><%= t "views.requests.index.book_title" %></th>
-    <th><%= t "views.requests.index.book_author" %></th>
-    <th><%= t "views.requests.index.content" %></th>
+    <th><%= "Name" %></th>
+    <th><%= "Address" %></th>
     <th><%= t "views.requests.index.functions" %></th>
   </tr>
   <% @requests.each do |request| %>
@@ -13,7 +12,6 @@
       <td> <%= request.id %> </td>
       <td> <%= request.book_title %> </td>
       <td> <%= request.book_author %> </td>
-      <td> <%= request.content %> </td>
       <td>
         <span>
           <%= link_to t("views.requests.index.cancelbutton"), request_path(request),
