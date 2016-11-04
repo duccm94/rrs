@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
+  ratyrate_rater
 
   has_many :marks
   has_many :requests, dependent: :destroy

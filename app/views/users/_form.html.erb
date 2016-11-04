@@ -1,11 +1,6 @@
 <%= form_for @user, html: {multipart: true} do |f| %>
   <%= render partial: "shared/error_messages", locals: {object: @user}  %>
 
-  <% if logged_in? %>
-    <%= f.label :avatar %>
-    <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
-  <% end %>
-
   <%= f.label :name %>
   <%= f.text_field :name, class: "form-control" %>
 
@@ -17,6 +12,11 @@
 
   <%= f.label :password_confirmation, t("views.users.new.form.confir") %>
   <%= f.password_field :password_confirmation, class: "form-control" %>
+
+  <% if logged_in? %>
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar, accept: "image/jpeg,image/gif,image/png" %>
+  <% end %>
 
   <%= f.submit yield(:button_text), class: "btn btn-primary" %>
 <% end %>

@@ -1,7 +1,7 @@
 <h1><%= t"views.reviews.edit.editcomment" %></h1>
-<%= form_for [@book, @review, @comment] do |f| %>
+<%= form_for [@book, @review, @comment], url: restaurant_review_comment_url(@book, @review, @comment), method: :put do |f| %>
 
   <%= f.text_area :content %>
-  <%= f.submit :Update %>
+  <%= f.submit :Update, class:"btn btn-primary" %>
 
 <% end %>

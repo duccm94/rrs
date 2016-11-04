@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       params[:session][:remember_me] == "1" ? remember(user) : forget(user)
       flash[:success] = t "controllers.session.flash.success"
       if user.is_admin
-        redirect_to admin_books_url
+        redirect_to admin_restaurants_url
       else
         redirect_back_or user
       end

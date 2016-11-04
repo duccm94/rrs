@@ -1,9 +1,9 @@
-<%= form_for [@book, @review] do |f| %>
+<%= form_for [@book, @review], url:restaurant_reviews_url(@book, @review), method: :post do |f| %>
   <div id="rating-form">
     <label><%= t("views.reviews.new.rating") %></label>
   </div>
   <%= f.label :content %>
   <%= f.text_area :content %>
-  <%= f.submit :Submit %>
+  <%= f.submit :Submit , class: "btn btn-success" %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 <% end %>

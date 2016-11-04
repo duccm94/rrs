@@ -7,6 +7,7 @@ class CreateBooks < ActiveRecord::Migration
       t.integer :number_of_pages
       t.datetime :publish_date
       t.decimal :rate_score, default: 0.0
+      t.attachment :image
 
       t.timestamps null: false
     end

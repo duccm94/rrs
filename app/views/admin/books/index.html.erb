@@ -6,7 +6,6 @@
 
 <table class="table table-hover">
   <tr>
-    <th><%= t "views.admin.book.index.book_id" %></th>
     <th><%= t "views.admin.book.index.category" %></th>
     <th><%= "Name" %></th>
     <th><%= "Address" %></th>
@@ -16,17 +15,16 @@
   </tr>
   <% @books.each do |book| %>
     <tr>
-      <td> <%= book.id %> </td>
       <td> <%= book.category.title %> </td>
-      <td> <%= book.title %> </td>
+      <td> <%= link_to book.title, admin_restaurant_path(book) %> </td>
       <td> <%= book.author %> </td>
       <td> <%= book.rate_score %></td>
       <td> <%= book.reviews.count %> </td>
       <td>
         <span>
-          <%= link_to t("views.admin.book.index.editbutton"), edit_admin_book_url(book),
+          <%= link_to t("views.admin.book.index.editbutton"), edit_admin_restaurant_url(book),
             class:"btn btn-info" %>
-          <%= link_to t("views.admin.book.index.deletebutton"), admin_book_url(book),
+          <%= link_to t("views.admin.book.index.deletebutton"), admin_restaurant_url(book),
             method: :delete, data: {confirm: t("views.admin.book.index.deleteconfirm")},
               class:"btn btn-danger" %>
         </span>
@@ -35,5 +33,5 @@
   <% end %>
 </table>
 
-<%= link_to "New Restaurant", new_admin_book_path,
+<%= link_to "New Restaurant", new_admin_restaurant_path,
   class: "btn btn-info" %>

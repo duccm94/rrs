@@ -7,6 +7,8 @@ class Comment < ActiveRecord::Base
 
   after_save :create_comment_activity
 
+  scope :order_by_time, -> {order created_at: :desc}
+
   private
   def create_comment_activity
     create_activity user_id, review.book_id, Activity.target_types[:book_target],

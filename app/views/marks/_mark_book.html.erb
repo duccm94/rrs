@@ -4,7 +4,7 @@
     <%= @marked_book.mark_type %>
   </h2>
   <%= link_to "change",
-    edit_book_mark_path(@book, @marked_book), remote: true %>
+    edit_restaurant_mark_path(@book, @marked_book), remote: true %>
   <div id="edit-mark"></div>
 <% else %>
   <%= render "marks/mark_form" %>

@@ -3,8 +3,7 @@
     <% @books.each do |book| %>
       <div class="row">
         <div class="col-md-2">
-          <%= image_tag book.image.url,
-            size: Settings.book.history.size if book.image? %>
+          <%= link_to book_image_select(book), book %>
         </div>
         <div class="col-md-10">
           <h3><%= link_to book.title, book %></h3>

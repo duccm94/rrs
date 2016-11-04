@@ -2,8 +2,10 @@ class Book < ActiveRecord::Base
   belongs_to :category
   has_many :marks, dependent: :destroy
   has_many :reviews, dependent: :destroy
-
-  mount_uploader :image, BookImageUploader
+  ratyrate_rateable "rate"
+  # mount_uploader :image, BookImageUploader
+  has_attached_file :image, styles: {medium: "300x300", large: "450x450#"}
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   validates :title, presence: true, length: {maximum: 50}
   validates :author, presence: true, length: {maximum: 50}

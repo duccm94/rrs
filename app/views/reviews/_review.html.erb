@@ -1,6 +1,6 @@
 <div class="review-card">
   <%= image_tag review.user.avatar.url, size: "30x30" %>
-  <span>
+  <span class="user-name">
     <%= review.user.name %>
   </span>
   <span class="time-ago-in-words pull-right">
@@ -8,32 +8,34 @@
     <%= t("views.activities.ago") %>
   </span>
   <div>
-    <%= t "views.reviews.rating" %>
+    <b><%= t "views.reviews.rating" %></b>
     <span class="review-rating" data-score="<%= review.rating %>" ></span>
   </div>
   <div>
-    <%= t "views.reviews.content" %>
+    <b><%= t "views.reviews.content" %></b>
     <%= review.content %>
-  </div>
-  <div>
-    <center>
-    <%= link_to t("views.book.show.comment"),
-      new_book_review_comment_path(review.book, review),
-      class: "btn btn-info" %>
-    </center>
   </div>
   <div>
     <% if review.user.is_user? (current_user) %>
       <%= link_to t("views.book.show.edit"),
-        edit_book_review_path(review.book, review), class: "btn btn-success"
+        edit_restaurant_review_path(review.book, review), class: "btn btn-success"
         %>
       <%= link_to t("views.book.show.destroy"),
-        book_review_path(review.book, review),
+        restaurant_review_path(review.book, review),
         method: :delete, data: {confirm: t("views.book.show.delete_confirm")},
         class: "btn btn-success" %>
     <% end %>
   </div>
+  <div style="margin: 20px 0;">
+    Comment
+    <%= render "comments/comment_form",book: review.book, review: review,
+      comment: review.user.comments.build %>
+  </div>
   <div class="comments">
-    <%= render review.comments %>
+    <% if review.comments.any? %>
+      <% review.comments.order_by_time.each do |comment| %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
+    <% end %>
   </div>
 </div>

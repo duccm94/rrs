@@ -8,7 +8,7 @@ class MarksController < ApplicationController
     if @user_book.save
       flash[:success] = t "userbook.create.success"
     end
-    redirect_to @book
+    redirect_to restaurant_path @user_book.book
   end
 
   def edit
@@ -18,7 +18,7 @@ class MarksController < ApplicationController
     if @user_book.update_attributes marks_params
       flash[:success] = t "userbook.create.success"
     end
-    redirect_to @book
+    redirect_to restaurant_path @book
   end
 
   private
@@ -31,6 +31,6 @@ class MarksController < ApplicationController
   end
 
   def load_book
-    @book = Book.find_by id: params[:book_id]
+    @book = Book.find_by id: params[:restaurant_id]
   end
 end

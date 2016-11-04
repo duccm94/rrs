@@ -1,8 +1,8 @@
 <div class="col-md-4">
   <div class="thumbnail book-card">
-    <%= image_tag @book.image.url(:thumb) if @book.image? %>
+    <%= link_to book_image_select(@book), current_user.is_admin? ? admin_restaurant_path(@book) : restaurants_path(@book) %>
     <div class="caption">
-      <h3><%= link_to @book.title, @book %></h3>
+      <h3><%= link_to @book.title, restaurants_path(@book) %></h3>
       <h4><%= "Address:" %> <%= @book.author %></h4>
       <h4>
         <%= t "views.book.show.ratescore" %>
@@ -12,11 +12,14 @@
     </div>
   </div>
   <div>
-    <%= link_to t("views.book.show.addreview"), new_book_review_path(@book),
+    <%= link_to t("views.book.show.addreview"), new_restaurant_review_path(@book),
       class: "btn btn-info" %>
+  </div>
+  <div style="margin: 20px">
+    <%= social_share_button_tag(@book.title) %>
   </div>
 </div>
 <div class="col-md-8">
   <h2>  <%= t "views.book.show.reviews" %> </h2>
-  <%= render @book.reviews %>
+  <%= render @book.reviews.order_by_time %>
 </div>

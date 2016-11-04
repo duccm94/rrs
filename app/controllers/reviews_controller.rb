@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :logged_in_user, :load_book
-  before_action :correct_user, only: [:update, :destroy]
   before_action :load_review, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:update, :destroy]
 
   def new
     @review = @book.reviews.build
@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
     if @review.save
       flash[:success] = t "controllers.flash.common.create_success",
         objects: t("activerecord.model.review")
-      redirect_to @book
+      redirect_to restaurant_path @book
     else
       flash[:danger] = t "controllers.flash.common.create_error",
         objects: t("activerecord.model.review")
@@ -27,7 +27,7 @@ class ReviewsController < ApplicationController
     if @review.update review_params
       flash[:success] = t"controllers.flash.common.update_success",
         objects: t("activerecord.model.review")
-      redirect_to @book
+      redirect_to restaurant_path @book
     else
       flash[:danger] = t "controllers.flash.common.update_error",
         objects: t("activerecord.model.review")
@@ -43,7 +43,7 @@ class ReviewsController < ApplicationController
       flash[:danger] = t "controllers.flash.common.destroy_error",
         objects: t("activerecord.model.review")
     end
-    redirect_to @book
+    redirect_to restaurant_path @book
   end
 
   private
@@ -52,11 +52,15 @@ class ReviewsController < ApplicationController
   end
 
   def load_book
-    @book = Book.find_by id: params[:book_id]
+    @book = Book.find_by id: params[:restaurant_id]
   end
 
   def load_review
     @review = Review.find_by id: params[:id]
+  end
+
+  def correct_user
+    redirect_to restaurant_path(@book) if @review.user != current_user
   end
 
 end

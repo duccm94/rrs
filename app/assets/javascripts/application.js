@@ -14,4 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
+//= require social-share-button
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .

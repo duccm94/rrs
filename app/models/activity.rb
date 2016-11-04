@@ -33,8 +33,8 @@ class Activity < ActiveRecord::Base
   def target_path
     if target
       return user_path(target) if user_target?
-      return book_path(target) if book_target?
-      return book_review_path(target.book, target) if review_target?
+      return restaurant_path(target) if book_target?
+      return restaurant_review_path(target.book, target) if review_target?
     else
       return I18n.t "model.activity.emptyurl"
     end

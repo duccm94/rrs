@@ -1,5 +1,5 @@
  <div class="col-md-4 divpadding">
-  <%= form_tag current_user.is_admin? ? admin_books_path : books_path,
+  <%= form_tag current_user.is_admin? ? admin_restaurants_path : restaurants_path,
     method: :get do %>
     <%= number_field_tag :rate_score, params[:rate_score], step: "0.1",
       placeholder: t("views.book.index.ratesearch"), class: "form-control" %>

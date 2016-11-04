@@ -10,12 +10,18 @@ class Admin::BooksController < ApplicationController
     @book = Book.new
   end
 
+  def show
+    @book = Book.find_by id: params[:id]
+    @marked_book = @book.marks.find_by user_id: current_user.id
+    @user_book = @book.marks.build
+  end
+
   def create
     @book = Book.new book_params
     if @book.save
       flash[:success] = t "controllers.flash.common.create_success",
         objects: t("activerecord.model.book")
-      redirect_to admin_books_url
+      redirect_to admin_restaurants_url
     else
       render :new
     end
@@ -28,7 +34,8 @@ class Admin::BooksController < ApplicationController
   def update
     @book = Book.find_by id: params[:id]
     if @book.update_attributes book_params
-      redirect_to admin_books_url
+      flash[:success] = "Resturant update success"
+      redirect_to admin_restaurants_url
     else
       render :edit
     end
@@ -43,7 +50,7 @@ class Admin::BooksController < ApplicationController
       flash[:danger] = t "controllers.flash.common.destroy_error",
         objects: t("activerecord.model.book")
     end
-    redirect_to admin_books_url
+    redirect_to admin_restaurants_url
   end
 
   private

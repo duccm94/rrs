@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   root "static_pages#home"
   get "help" => "static_pages#help"
   get "contact" => "static_pages#contact"
@@ -10,7 +11,7 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   resources :users
-  resources :books, only: [:index, :show] do
+  resources :restaurants, controller: "books", only: [:index, :show] do
     resources :reviews, except: [:index] do
       resources :comments, except: [:index, :show]
     end
@@ -30,7 +31,8 @@ Rails.application.routes.draw do
   namespace :admin do
     root "sessions#new"
     resources :categories
-    resources :books
+    resources :restaurants, controller: "books"
+    # resources :books
     resources :requests, only: [:index, :destroy]
     resources :users, only: [:index, :destroy]
   end

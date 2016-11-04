@@ -9,6 +9,9 @@ gem "bcrypt", "3.1.7"
 gem "faker", "1.4.2"
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
+gem "paperclip", "~> 5.0.0"
+gem "social-share-button"
+gem 'ratyrate'
 
 #bootstrap
 gem "will_paginate", "3.0.7"

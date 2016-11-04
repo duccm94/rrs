@@ -1,9 +1,9 @@
-<%= form_for [@book, @user_book] do |f| %>
+<%= form_for [@book, @user_book], url: restaurant_marks_url(@book, @user_book), method: :post do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :book_id %>
+  <%= f.hidden_field :book_id, value: @book.id %>
 
-  <%= f.submit t("views.book.show.markas"), class: "btn btn-primary" %>
   <span>
     <%= f.select :mark_type, Mark.mark_types.keys %>
   </span>
+  <%= f.submit t("views.book.show.markas"), class: "btn btn-primary" %>
 <% end %>

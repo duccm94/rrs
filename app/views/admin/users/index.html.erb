@@ -8,7 +8,8 @@
   </tr>
   <% @users.each do |user| %>
     <tr>
-      <td> <%= user.avatar %> </td>
+      <td> <%= image_tag user.avatar.url(:thumb),
+        size: Settings.activity.avatar_size, class: "img-rounded"  %> </td>
       <td> <%= user.name %> </td>
       <td> <%= user.email %> </td>
       <td>

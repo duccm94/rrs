@@ -9,9 +9,9 @@
   <div>
     <% if comment.user.is_user? (current_user) %>
       <%= link_to t("views.book.show.edit"),
-        edit_book_review_comment_path(comment.review.book, comment.review, comment) %>
+        edit_restaurant_review_comment_path(comment.review.book, comment.review, comment) %>
       <%= link_to t("views.book.show.destroy"),
-        book_review_comment_path(comment.review.book, comment.review, comment),
+        restaurant_review_comment_path(comment.review.book, comment.review, comment),
         method: :delete, data: {confirm: t("views.book.show.delete_comment")} %>
     <% end %>
   </div>

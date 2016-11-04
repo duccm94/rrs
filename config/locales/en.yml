@@ -29,7 +29,7 @@ en:
       reading: "reading"
       read: "read"
     create:
-      success: "You marked this book success"
+      success: "You marked this restaurant success"
       update: "Update mark success."
   users:
     show:
@@ -45,7 +45,7 @@ en:
       danger: "Please log in!"
   activerecord:
     model:
-      book: "Book"
+      book: "Restaurant"
       user: "User"
       category: "Category"
       request: "Request"
@@ -89,7 +89,7 @@ en:
         delete_confirm: "Are you sure delete this review"
         delete_comment: "Are you sure delete this comment"
         markas: "Mark as..."
-        marked: "This book is mark as "
+        marked: "This restaurant is mark as "
         reviews: "Reviews"
     users:
       new:
@@ -110,8 +110,8 @@ en:
       index:
         dashboard: "Request dashboard"
         id: "Id"
-        book_title: "Book Title"
-        book_author: "Book author"
+        book_title: "Restaurant Name"
+        book_author: "Restaurant author"
         content: "Content"
         cancelbutton: "Cancel"
         delete_confirm: "Are you sure?"
@@ -158,7 +158,7 @@ en:
       book:
         index:
           dashboard: "Restaurant Dashboard"
-          newbookbutton: "New book"
+          newbookbutton: "New restaurant"
           deletebutton: "Delete"
           editbutton: "Edit"
           book_id: "Id"
@@ -172,11 +172,11 @@ en:
           adminfunction: "Functions"
           deleteconfirm: "Are your sure?"
         new:
-          createnewbook: "Create new book"
-          createbutton: "Add new book"
+          createnewbook: "Create new restaurant"
+          createbutton: "Add new restaurant"
           category: "Category"
         edit:
-          updatebook: "Update book"
+          updatebook: "Update restaurant"
           updatebutton: "Save change"
       category:
         index:
@@ -200,8 +200,8 @@ en:
           dashboard: "Request Dashboard"
           id: "Id"
           onwer: "Owner"
-          book_title: "Book Title"
-          book_author: "Book author"
+          book_title: "Restaurant Name"
+          book_author: "Restaurant author"
           content: "Content"
           adminfunction: "Functions"
           deletebutton: "Done"
@@ -223,14 +223,14 @@ en:
       book:
         create:
           flash:
-            success: "New book is added"
+            success: "New restaurant is added"
         update:
           flash:
-            success: "Book is updated"
+            success: "Restaurant is updated"
         destroy:
           flash:
-            success: "Book is destroyed"
-            danger: "Book is not destroyed yet"
+            success: "Restaurant is destroyed"
+            danger: "Restaurant is not destroyed yet"
     session:
       flash:
         success: "Wellcome back"
@@ -265,7 +265,7 @@ en:
     logged_in: "Please log in."
     request: "Requests"
     categories: "Categories"
-    lastestbooks: "Lastest Added Books"
+    lastestbooks: "Lastest Added Restaurants"
 
   datetime:
     distance_in_words:
