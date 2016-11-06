@@ -1,6 +1,6 @@
 class MarksController < ApplicationController
   before_action :logged_in_user
-  before_action :load_mark, only: [:edit, :update]
+  before_action :load_mark, only: [:edit, :update, :destroy]
   before_action :load_book
 
   def create
@@ -19,6 +19,12 @@ class MarksController < ApplicationController
       flash[:success] = t "userbook.create.success"
     end
     redirect_to restaurant_path @book
+  end
+
+  def destroy
+    if @user_book.destroy
+      redirect_to restaurant_path @book
+    end
   end
 
   private

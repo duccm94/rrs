@@ -1,0 +1,6 @@
+$('#book_<%=@book.id%>-like_button').html('<%= escape_javascript(
+  render partial: "like_books/like_button",
+  locals: {book: @book}
+  ) %>');
+$('#book_<%=@book.id%>-like_stats')
+  .html('<%= @nook.like_books.count %>');

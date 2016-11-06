@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   has_many :reviews, dependent: :destroy
   has_many :activities, dependent: :destroy
   has_many :like_activities, dependent: :destroy
+  has_many :like_books, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
     foreign_key: :follower_id, dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship",
@@ -79,6 +80,10 @@ class User < ActiveRecord::Base
 
   def like_activity? activity
     like_activities.find_by(activity_id: activity.id).present?
+  end
+
+  def like_book? book
+    like_books.find_by(book_id: book.id).present?
   end
 
   private

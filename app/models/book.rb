@@ -2,6 +2,7 @@ class Book < ActiveRecord::Base
   belongs_to :category
   has_many :marks, dependent: :destroy
   has_many :reviews, dependent: :destroy
+  has_many :like_books, dependent: :destroy
   ratyrate_rateable "rate"
   # mount_uploader :image, BookImageUploader
   has_attached_file :image, styles: {medium: "300x300", large: "450x450#"}
