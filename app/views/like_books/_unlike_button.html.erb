@@ -1,0 +1,5 @@
+<%= link_to user_like_book_path(current_user, current_user.like_books
+  .find_by(book_id: book.id), like_book: {book_id: book.id}),
+  method: :delete do %>
+  <i class="unlike-button glyphicon glyphicon-thumbs-up"></i>
+<% end %>
