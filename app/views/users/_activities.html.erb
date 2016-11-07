@@ -18,16 +18,11 @@
         <% end %>
 
         <% if activity.target.respond_to? :image %>
-          <% if activity.target.image.exists? %>
-            <%= link_to activity.target_path do %>
-              <%= image_tag activity.target.image.url(:thumb),
-              size: Settings.activity.avatar_size, class: "img-rounded" %>
-            <% end %>
-          <% else %>
-            <%= link_to activity.target_path do %>
-              <%= image_tag "default_image.jpg",size: Settings.activity.avatar_size,
-              class: "img-rounded" %>
-            <% end %>
+          <%= link_to activity.target_path do %>
+            <div class="aaa">
+              <%= book_image_select(activity.target)%>
+              <div class="clearfix"></div>
+            </div>
           <% end %>
         <% end %>
 

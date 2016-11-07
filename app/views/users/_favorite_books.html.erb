@@ -2,8 +2,10 @@
   <% @favorite_books.each do |favorite_book| %>
     <li>
       <%= link_to restaurant_path(favorite_book) do %>
-        <%= image_tag favorite_book.image.url,
-          size: Settings.book.history.size if favorite_book.image? %>
+        <div class="aaa">
+          <%= book_image_select(favorite_book)%>
+          <div class="clearfix"></div>
+        </div>
         <strong><%= favorite_book.title %></strong>
       <% end %>
   <hr>
