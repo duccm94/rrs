@@ -1,10 +1,25 @@
 <ul class="nav nav-tabs">
   <li>
-    <%= link_to t("users.show.favorite"), "#favorite", data: {toggle: "tab"} %>
+    <%= link_to "Favorited", "#favorite", data: {toggle: "tab"} %>
   </li>
+  <li>
+    <%= link_to "New Feed", "#newfeed", data: {toggle: "tab"} %>
+  </li>
+  <li>
+    <%= link_to "Activities", "#activities", data: {toggle: "tab"} %>
+  </li>
+
 </ul>
 <div class="tab-content">
   <div id="favorite" class="tab-pane fade">
     <%= render "favorite_books" %>
+  </div>
+
+  <div id="newfeed" class="tab-pane fade">
+    <%= render "newfeed", followings: @followings %>
+  </div>
+
+  <div id="activities" class="tab-pane fade">
+    <%= render "activities", activities: @activities %>
   </div>
 </div>

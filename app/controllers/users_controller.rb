@@ -21,6 +21,7 @@ class UsersController < ApplicationController
     @activities = @user.activities.order("created_at desc").limit(100)
       .paginate page: params[:page], per_page: Settings.per_page
     @favorite_books = Book.favorite_books(@user)
+    @followings = @user.following
   end
 
   def create
