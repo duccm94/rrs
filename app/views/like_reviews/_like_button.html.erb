@@ -1,0 +1,5 @@
+<%= link_to user_like_reviews_path(current_user,
+  like_review: {review_id: review.id}), method: :post, remote: :true do %>
+  <i class="glyphicon glyphicon-thumbs-up"></i>
+<% end %>
+

@@ -3,6 +3,7 @@ class Review < ActiveRecord::Base
   belongs_to :book
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :like_reviews, dependent: :destroy
 
   after_save :calculate_score, :create_review_activity
 

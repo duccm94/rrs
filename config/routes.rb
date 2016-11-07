@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       :to => "relationships#index", :as => :relationships
     resources :like_activities, only: [:create, :destroy]
     resources :like_books, only: [:create, :destroy]
+    resources :like_reviews, only: [:create, :destroy]
   end
 
   resources :relationships, only: [:create, :destroy]

@@ -1,6 +1,6 @@
 <% if @marked_book && @marked_book.mark_type.present? %>
   <%= link_to "Unfavorite",
-    restaurant_mark_path(@book, @marked_book), method: :delete, class:"btn btn-danger" %>
+    restaurant_mark_path(@book, @marked_book), method: :delete, class:"btn btn-danger width50" %>
   <div id="edit-mark"></div>
 <% else %>
   <%= render "marks/mark_form" %>
