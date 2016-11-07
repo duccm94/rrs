@@ -1,6 +1,8 @@
 <div class="comment">
-  <%= image_tag comment.user.avatar.url, size: "30x30" %>
-  <span><%= comment.user.name %></span>
+  <%= link_to comment.user do%>
+    <%= image_tag comment.user.avatar.url, size: "30x30" %>
+    <span><%= comment.user.name %></span>
+  <% end %>
   <span class="time-ago-in-words pull-right">
     <%= time_ago_in_words(comment.created_at) %>
     <%= t("views.activities.ago") %>

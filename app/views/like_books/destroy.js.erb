@@ -3,4 +3,4 @@ $('#book_<%=@book.id%>-like_button').html('<%= escape_javascript(
   locals: {book: @book}
   ) %>');
 $('#book_<%=@book.id%>-like_stats')
-  .html('<%= @nook.like_books.count %>');
+  .html('<%= @book.like_books.count %>');

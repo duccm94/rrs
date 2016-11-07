@@ -6,7 +6,6 @@ class MarksController < ApplicationController
   def create
     @user_book = @book.marks.build marks_params
     if @user_book.save
-      flash[:success] = t "userbook.create.success"
     end
     redirect_to restaurant_path @user_book.book
   end

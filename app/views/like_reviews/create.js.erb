@@ -1,0 +1,6 @@
+$('#review_<%=@review.id%>-like_button').html('<%= escape_javascript(
+  render partial: "like_reviews/unlike_button",
+  locals: {review: @review}
+  ) %>');
+$('#review_<%=@review.id%>-like_stats')
+  .html('<%= @review.like_reviews.count %>');

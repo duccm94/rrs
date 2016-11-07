@@ -1,0 +1,10 @@
+<ul class="nav nav-tabs">
+  <li>
+    <%= link_to t("users.show.favorite"), "#favorite", data: {toggle: "tab"} %>
+  </li>
+</ul>
+<div class="tab-content">
+  <div id="favorite" class="tab-pane fade">
+    <%= render "favorite_books" %>
+  </div>
+</div>

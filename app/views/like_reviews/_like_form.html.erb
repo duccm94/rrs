@@ -1,0 +1,21 @@
+<div class="like-activity pull-right">
+  <% if current_user.present? %>
+    <span id="review_<%=review.id%>-like_button"
+      class="like-activity-button">
+      <% if current_user.like_review? review %>
+        <%= render partial: "like_reviews/unlike_button",
+          locals: {review: review} %>
+      <% else %>
+        <%= render partial: "like_reviews/like_button",
+          locals: {review: review} %>
+      <% end %>
+    </span>
+  <% end %>
+
+  <span id="review_<%=review.id%>-like_stats" class="like-activity-count">
+    <%= review.like_reviews.count %>
+  </span>
+  <span>
+    <%= t "views.activities.likes" %>
+  </span>
+</div>

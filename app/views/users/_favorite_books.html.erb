@@ -1,7 +1,7 @@
 <% if @favorite_books.any? %>
   <% @favorite_books.each do |favorite_book| %>
     <li>
-      <%= link_to favorite_book do %>
+      <%= link_to restaurant_path(favorite_book) do %>
         <%= image_tag favorite_book.image.url,
           size: Settings.book.history.size if favorite_book.image? %>
         <strong><%= favorite_book.title %></strong>

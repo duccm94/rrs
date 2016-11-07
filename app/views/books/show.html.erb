@@ -10,10 +10,6 @@
           <span class="average-review-rating" data-score="<%= @book.rate_score %>"></span>
         </h4>
       </div>
-      <div class="like-area">
-        <%= render partial: "like_books/like_form",
-          locals: {book: @book} %>
-      </div>
       <%= render "marks/mark_book" %>
     </div>
   </div>

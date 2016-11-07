@@ -1,0 +1,5 @@
+<%= link_to user_like_review_path(current_user, current_user.like_reviews
+  .find_by(review_id: review.id), like_review: {review_id: review.id}), remove: true,
+  method: :delete do %>
+  <i class="unlike-button glyphicon glyphicon-thumbs-up"></i>
+<% end %>

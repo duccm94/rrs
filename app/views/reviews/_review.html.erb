@@ -1,8 +1,10 @@
 <div class="review-card">
-  <%= image_tag review.user.avatar.url, size: "30x30" %>
-  <span class="user-name">
-    <%= review.user.name %>
-  </span>
+  <%= link_to review.user do %>
+    <%= image_tag review.user.avatar.url, size: "30x30" %>
+    <span class="user-name">
+      <%= review.user.name %>
+    </span>
+  <% end %>
   <span class="time-ago-in-words pull-right">
     <%= time_ago_in_words(review.created_at) %>
     <%= t("views.activities.ago") %>
@@ -23,9 +25,13 @@
       <%= link_to t("views.book.show.destroy"),
         restaurant_review_path(review.book, review),
         method: :delete, data: {confirm: t("views.book.show.delete_confirm")},
-        class: "btn btn-success" %>
+        class: "btn btn-danger" %>
     <% end %>
   </div>
+  <div class="like-area">
+      <%= render partial: "like_reviews/like_form",
+        locals: {review: review} %>
+    </div>
   <div style="margin: 20px 0;">
     Comment
     <%= render "comments/comment_form",book: review.book, review: review,
