@@ -33,6 +33,7 @@ class User < ActiveRecord::Base
   has_secure_password
 
   scope :not_is_admin, ->{where is_admin: false}
+  scope :order_by_name, ->{order name: :ASC}
 
   def User.digest string
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -89,6 +90,15 @@ class User < ActiveRecord::Base
 
   def like_review? review
     like_reviews.find_by(review_id: review.id).present?
+  end
+
+  def self.search name
+    if name.present?
+      where("name LIKE ?", "%#{name}%").order_by_name
+    else
+      order_by_name
+    end
+
   end
 
   private

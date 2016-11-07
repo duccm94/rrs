@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :logged_in_user, :load_book
   before_action :load_review, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:update, :destroy]
+  before_action :find_review, only: :create
 
   def new
     @review = @book.reviews.build
@@ -48,7 +49,7 @@ class ReviewsController < ApplicationController
 
   private
   def review_params
-    params.require(:review).permit :user_id, :rating, :content
+    params.require(:review).permit :user_id, :rating, :content, :image
   end
 
   def load_book
@@ -63,4 +64,11 @@ class ReviewsController < ApplicationController
     redirect_to restaurant_path(@book) if @review.user != current_user
   end
 
+  def find_review
+    @reviewed = @book.reviews.find_by user_id: current_user.id
+    if @reviewed
+      flash[:danger] = "You are reviewed this restaurant"
+      redirect_to restaurant_path(@book)
+    end
+  end
 end

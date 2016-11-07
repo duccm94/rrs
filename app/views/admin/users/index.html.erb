@@ -1,4 +1,5 @@
 <h1><%= t "views.admin.user.index.dashboard" %></h1>
+<%= render "users/search_form" %>
 <table class="table table-hover">
   <tr>
     <th><%= t "views.admin.user.index.avatar" %></th>
@@ -10,15 +11,17 @@
     <tr>
       <td> <%= image_tag user.avatar.url(:thumb),
         size: Settings.activity.avatar_size, class: "img-rounded"  %> </td>
-      <td> <%= user.name %> </td>
+      <td> <%= link_to user.name, user %> </td>
       <td> <%= user.email %> </td>
       <td>
-        <span>
-          <%= link_to t("views.admin.user.index.deletebutton"),
-          admin_user_url(user),method: :delete,
-          data:{confirm: t("views.admin.user.index.deleteconfirm")},
-          class:"btn btn-danger" %>
-        </span>
+        <% unless user.is_admin? %>
+            <span>
+              <%= link_to t("views.admin.user.index.deletebutton"),
+              admin_user_url(user),method: :delete,
+              data:{confirm: t("views.admin.user.index.deleteconfirm")},
+              class:"btn btn-danger" %>
+            </span>
+        <% end %>
       </td>
     </tr>
   <% end %>

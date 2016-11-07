@@ -8,17 +8,14 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @review = Review.find_by_id params[:review_id]
-    @restaurant = Book.find_by_id params[:restaurant_id]
     @comment = @review.comments.build comment_params
     if @comment.save
       flash[:success] = t "controllers.flash.common.create_success",
         objects: t("activerecord.model.comment")
       redirect_to restaurant_path  @restaurant
     else
-      flash[:danger] = t "controllers.flash.common.create_error",
-        objects: t("activerecord.model.comment")
-      render :new
+      flash[:danger] = "Type something"
+      redirect_to restaurant_path(@book)
     end
   end
 

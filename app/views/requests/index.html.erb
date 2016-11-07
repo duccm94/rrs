@@ -5,6 +5,7 @@
     <th><%= t "views.requests.index.id" %></th>
     <th><%= "Name" %></th>
     <th><%= "Address" %></th>
+    <th><%= "Status" %></th>
     <th><%= t "views.requests.index.functions" %></th>
   </tr>
   <% @requests.each do |request| %>
@@ -12,12 +13,15 @@
       <td> <%= request.id %> </td>
       <td> <%= request.book_title %> </td>
       <td> <%= request.book_author %> </td>
+      <td><%= request.accept %></td>
       <td>
-        <span>
-          <%= link_to t("views.requests.index.cancelbutton"), request_path(request),
-            method: :delete, data: {confirm: t("views.requests.index.delete_confirm")},
-            class:"btn btn-info" %>
-        </span>
+        <% if request.waiting? %>
+          <span>
+            <%= link_to t("views.requests.index.cancelbutton"), request_path(request),
+              method: :delete, data: {confirm: t("views.requests.index.delete_confirm")},
+              class:"btn btn-info" %>
+          </span>
+        <% end %>
       </td>
     </tr>
   <% end %>

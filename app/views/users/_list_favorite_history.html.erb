@@ -1,4 +1,7 @@
 <ul class="nav nav-tabs">
+  <li class="active">
+    <%= link_to "Top Review", "#reviews", data: {toggle: "tab"} %>
+  </li>
   <li>
     <%= link_to "Favorited", "#favorite", data: {toggle: "tab"} %>
   </li>
@@ -11,6 +14,10 @@
 
 </ul>
 <div class="tab-content">
+  <div id="reviews" class="tab-pane fade in active">
+    <%= render "review", reviews: @reviews %>
+  </div>
+
   <div id="favorite" class="tab-pane fade">
     <%= render "favorite_books" %>
   </div>

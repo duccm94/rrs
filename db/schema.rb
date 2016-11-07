@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20161107011000) do
     t.integer  "category_id"
     t.string   "title"
     t.string   "author"
+    t.string   "description"
     t.integer  "number_of_pages"
     t.datetime "publish_date"
     t.decimal  "rate_score",         default: 0.0
@@ -147,8 +148,9 @@ ActiveRecord::Schema.define(version: 20161107011000) do
     t.string   "book_title"
     t.string   "book_author"
     t.text     "content"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "accept",      default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -156,8 +158,12 @@ ActiveRecord::Schema.define(version: 20161107011000) do
     t.text     "content"
     t.decimal  "rating"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"

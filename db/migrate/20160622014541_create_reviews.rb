@@ -5,6 +5,7 @@ class CreateReviews < ActiveRecord::Migration
       t.text :content
       t.decimal :rating
       t.references :user, index: true, foreign_key: true
+      t.attachment :image
 
       t.timestamps null: false
     end

@@ -33,9 +33,13 @@ Rails.application.routes.draw do
   namespace :admin do
     root "sessions#new"
     resources :categories
-    resources :restaurants, controller: "books"
-    # resources :books
-    resources :requests, only: [:index, :destroy]
+    resources :restaurants, controller: "books" do
+      resources :reviews, only: [:destroy] do
+        resources :comments, only: [:destroy]
+      end
+    end
+    resource :reviews, only: [:destroy]
+    resources :requests
     resources :users, only: [:index, :destroy]
   end
 end

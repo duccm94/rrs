@@ -4,6 +4,8 @@
   </div>
   <%= f.label :content %>
   <%= f.text_area :content %>
+  <%= f.label :image %>
+  <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
   <%= f.submit :Submit , class: "btn btn-success" %>
   <%= f.hidden_field :user_id, value: current_user.id %>
 <% end %>
