@@ -4,7 +4,7 @@
   <div class="recently-actions">
     <% activities.each do |activity| %>
       <div class="recently-action">
-        <span>
+        <div>
           <span><%= image_tag activity.owner.avatar.url(:thumb),
             size: Settings.activity.avatar_size, class: "img-rounded" %></span>
           <%if activity.owner == current_user %>
@@ -21,17 +21,12 @@
           <% end %>
 
           <% if activity.target.respond_to? :image %>
-            <% if activity.target.image.exists? %>
               <%= link_to activity.target_path do %>
-                <%= image_tag activity.target.image.url(:thumb),
-                size: Settings.activity.avatar_size, class: "img-rounded" %>
+                <div class="aaa">
+                  <%= book_image_select(activity.target)%>
+                  <div class="clearfix"></div>
+                </div>
               <% end %>
-            <% else %>
-              <%= link_to activity.target_path do %>
-                <%= image_tag "default_image.jpg",size: Settings.activity.avatar_size,
-                class: "img-rounded" %>
-              <% end %>
-            <% end %>
           <% end %>
 
           <%= link_to activity.target_name, activity.target_path %>
@@ -39,7 +34,7 @@
             <%= time_ago_in_words(activity.created_at) %>
             <%= t("views.activities.ago") %>
           </span>
-        </span>
+        </div>
       </div>
     <hr>
     <% end %>
