@@ -35,13 +35,13 @@
       <%= render partial: "like_reviews/like_form",
         locals: {review: review} %>
   </div>
-  <% unless current_user.nil? %>
-    <div style="margin: 20px 0;">
+  <div style="margin: 20px 0;">
+    <% unless current_user.nil?%>
       Comment
       <%= render "comments/comment_form",book: review.book, review: review,
         comment: review.user.comments.build %>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
   <div class="comments">
     <% if review.comments.any? %>
       <% review.comments.order_by_time.each do |comment| %>
@@ -50,3 +50,4 @@
     <% end %>
   </div>
 </div>
+<div class="clearfix"></div>

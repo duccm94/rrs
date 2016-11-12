@@ -5,10 +5,10 @@
       <%= link_to book_image_select(@book), restaurant_path(@book) , class: "img-responsive home-image" %>
       <div class="caption">
         <h3><%= link_to @book.title, restaurant_path(@book) %></h3>
-        <h4><%= "Address" %> <%= @book.author %></h4>
-        <h4><b><%= "Description: "%></b><%= @book.description %></h4>
+        <h4><b><%= "Address: " %></b></h4><%= @book.author %>
+        <h4><b><%= "Description: "%></b></h4><%= @book.description %>
         <h4>
-          <%= t "views.book.show.ratescore" %>
+          <b><%= t "views.book.show.ratescore" %></b>
           <span class="average-review-rating" data-score="<%= @book.rate_score %>"></span>
         </h4>
       </div>

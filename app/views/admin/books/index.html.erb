@@ -1,9 +1,9 @@
-
-<%= render "books/search_form" %>
-<div class="col-md-8">
+<h1>
   <h1><%= t "views.admin.book.index.dashboard" %></h1>
-</div>
-
+</h1>
+<%= render "books/search_form" %>
+<%= link_to "New Restaurant", new_admin_restaurant_path, class: "btn btn-info" %>
+<div class="clearfix"></div>
 <table class="table table-hover">
   <tr>
     <th><%= t "views.admin.book.index.category" %></th>
@@ -32,6 +32,5 @@
     </tr>
   <% end %>
 </table>
+<%= will_paginate @books %>
 
-<%= link_to "New Restaurant", new_admin_restaurant_path,
-  class: "btn btn-info" %>

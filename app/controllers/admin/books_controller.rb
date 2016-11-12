@@ -4,6 +4,7 @@ class Admin::BooksController < ApplicationController
 
   def index
     @books = Book.search(params[:search], params[:rate_score]).order("title")
+      .paginate page: params[:page], per_page: Settings.per_page
   end
 
   def new
