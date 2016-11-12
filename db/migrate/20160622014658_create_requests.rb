@@ -5,6 +5,7 @@ class CreateRequests < ActiveRecord::Migration
       t.string :book_title
       t.string :book_author
       t.text :content
+      t.integer :accept, default: 0
 
       t.timestamps null: false
     end

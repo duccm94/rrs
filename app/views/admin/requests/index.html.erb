@@ -6,6 +6,7 @@
     <th><%= t "views.admin.requests.index.onwer" %></th>
     <th><%= "Name" %></th>
     <th><%= "Address" %></th>
+    <th><%= "status" %></th>
     <th><%= t "views.admin.user.index.adminfunction" %></th>
   </tr>
   <% @requests.each do |request| %>
@@ -14,12 +15,15 @@
       <td> <%= request.user.name %> </td>
       <td> <%= request.book_title %> </td>
       <td> <%= request.book_author %> </td>
+      <td><%= request.accept %></td>
       <td>
         <span>
-          <%= link_to t("views.admin.requests.index.deletebutton"),
-            admin_request_path(request), method: :delete,
-            data: {confirm: t("views.admin.requests.index.delete_confirm")},
-            class:"btn btn-info" %>
+          <% if request.waiting? %>
+            <%= link_to "accept", admin_request_path(request, accept: true),
+              method: :put, class:"btn btn-success" %>
+            <%= link_to "reject", admin_request_path(request, accept: false), method: :put,
+              class:"btn btn-danger", data: {confirm: t("views.admin.requests.index.delete_confirm")} %>
+          <% end %>
         </span>
       </td>
     </tr>

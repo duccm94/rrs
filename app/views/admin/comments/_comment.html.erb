@@ -1,0 +1,16 @@
+<div class="comment">
+  <%= link_to comment.user do%>
+    <%= image_tag comment.user.avatar.url, size: "30x30" %>
+    <span><%= comment.user.name %></span>
+  <% end %>
+  <span class="time-ago-in-words pull-right">
+    <%= time_ago_in_words(comment.created_at) %>
+    <%= t("views.activities.ago") %>
+  </span>
+  <div><%= comment.content %></div>
+  <div>
+    <%= link_to t("views.book.show.destroy"),
+      admin_restaurant_review_comment_path(comment.review.book, comment.review, comment),
+      method: :delete, data: {confirm: t("views.book.show.delete_comment")} %>
+  </div>
+</div>

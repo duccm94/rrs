@@ -1,0 +1,35 @@
+<div class="review-card">
+  <%= link_to review.user do %>
+    <%= image_tag review.user.avatar.url, size: "30x30" %>
+    <span class="user-name">
+      <%= review.user.name %>
+    </span>
+  <% end %>
+  <span class="time-ago-in-words pull-right">
+    <%= time_ago_in_words(review.created_at) %>
+    <%= t("views.activities.ago") %>
+  </span>
+  <div>
+    <b><%= t "views.reviews.rating" %></b>
+    <span class="review-rating" data-score="<%= review.rating %>" ></span>
+  </div>
+  <div>
+    <b><%= t "views.reviews.content" %></b>
+    <%= review.content %>
+  </div>
+  <div>
+    <% if current_user.is_admin? %>
+      <%= link_to t("views.book.show.destroy"),
+        admin_restaurant_review_path(review.book, review),
+        method: :delete, data: {confirm: t("views.book.show.delete_confirm")},
+        class: "btn btn-danger" %>
+    <% end %>
+  </div>
+  <div class="comments">
+    <% if review.comments.any? %>
+      <% review.comments.order_by_time.each do |comment| %>
+        <%= render "admin/comments/comment", comment: comment %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

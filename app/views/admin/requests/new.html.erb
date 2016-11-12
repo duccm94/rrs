@@ -1,0 +1,8 @@
+<h2><%= "Create New Restaurant" %></h2>
+<% provide(:button_text, t("views.admin.book.new.createbutton")) %>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "form", book: @book %>
+  </div>
+</div>

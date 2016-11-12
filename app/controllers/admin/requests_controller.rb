@@ -1,6 +1,23 @@
 class Admin::RequestsController < ApplicationController
   before_action :logged_as_admin
   before_action :load_request, only: [:destroy]
+  before_action :get_categories, only: [:edit, :update]
+
+  def edit
+
+  end
+
+  def update
+    @request = Request.find_by_id params[:id]
+    @book = Book.new title: @request.book_title, author: @request.book_author
+    if params[:accept] == "true"
+      @request.update accept: 1
+      render "admin/requests/new"
+    else
+      @request.update accept: 2
+      redirect_to admin_requests_url
+    end
+  end
 
   def index
     @requests = Request.order("created_at desc")
@@ -21,5 +38,9 @@ class Admin::RequestsController < ApplicationController
   private
   def load_request
     @request = Request.find_by id: params[:id]
+  end
+
+  def get_categories
+    @categories = Category.all
   end
 end

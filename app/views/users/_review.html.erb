@@ -1,0 +1,19 @@
+<div>
+  <% reviews.each do |review| %>
+    <div class="recently-action">
+      <div>
+        <%= image_tag review.user.avatar.url(:thumb),
+          size: Settings.activity.avatar_size, class: "img-rounded" %>
+        <%= link_to review.user.name, user_path %> review at <%= link_to review.book.title, restaurant_path(review.book) %>
+      </div>
+      <div>
+        <%= review.content %>
+        <div>
+          <span class="review-rating" data-score="<%= review.rating %>" ></span>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <hr>
+    </div>
+  <% end %>
+</div>

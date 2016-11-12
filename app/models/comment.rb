@@ -5,6 +5,8 @@ class Comment < ActiveRecord::Base
   belongs_to :review
   has_many :comments
 
+  validates :content, presence: true
+
   after_save :create_comment_activity
 
   scope :order_by_time, -> {order created_at: :desc}

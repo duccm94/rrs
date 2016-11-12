@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-  before_action :logged_in_user
 
   def home
     @books = Book.order("created_at desc").limit(20)

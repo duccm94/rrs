@@ -8,7 +8,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.not_is_admin.order("created_at DESC").paginate page: params[:page],
+    @users = User.search(params[:name]).not_is_admin.order_by_name.paginate page: params[:page],
       per_page: Settings.per_page
   end
 
@@ -22,6 +22,7 @@ class UsersController < ApplicationController
       .paginate page: params[:page], per_page: Settings.per_page
     @favorite_books = Book.favorite_books(@user)
     @followings = @user.following
+    @reviews = Review.top_review(@favorite_books).order_by_rating
   end
 
   def create

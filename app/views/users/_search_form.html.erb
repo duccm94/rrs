@@ -1,0 +1,8 @@
+ <div style="position: relative;">
+  <%= form_tag current_user.is_admin? ? admin_users_path : users_path,
+    method: :get do %>
+    <span class ="glyphicon glyphicon-search search-icon" style="position: absolute; top: 10px; left: 275px;"></span>
+    <%= text_field_tag :name, params[:name],
+      placeholder: "Search user", class: "form-control", style: "width: 300px;"  %>
+  <% end %>
+</div>

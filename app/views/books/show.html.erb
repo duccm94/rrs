@@ -1,22 +1,39 @@
 <div class="col-md-4">
   <div class="thumbnail book-card">
-    <%= link_to book_image_select(@book), current_user.is_admin? ? admin_restaurant_path(@book) : restaurants_path(@book) %>
-    <div class="caption">
-      <h3><%= link_to @book.title, restaurants_path(@book) %></h3>
-      <h4><%= "Address:" %> <%= @book.author %></h4>
-      <div>
+
+    <% if current_user.nil? %>
+      <%= link_to book_image_select(@book), restaurant_path(@book) , class: "img-responsive home-image" %>
+      <div class="caption">
+        <h3><%= link_to @book.title, restaurant_path(@book) %></h3>
+        <h4><%= "Address" %> <%= @book.author %></h4>
+        <h4><b><%= "Description: "%></b><%= @book.description %></h4>
         <h4>
           <%= t "views.book.show.ratescore" %>
           <span class="average-review-rating" data-score="<%= @book.rate_score %>"></span>
         </h4>
       </div>
-      <%= render "marks/mark_book" %>
+    <% else %>
+      <%= link_to book_image_select(@book), restaurant_path(@book) , class: "img-responsive home-image" %>
+      <div class="caption">
+        <h3><%= link_to @book.title, restaurants_path(@book) %></h3>
+        <h4><%= "Address:" %> <%= @book.author %></h4>
+        <h4><b><%= "Description: "%></b><%= @book.description %></h4>
+        <div>
+          <h4>
+            <%= t "views.book.show.ratescore" %>
+            <span class="average-review-rating" data-score="<%= @book.rate_score %>"></span>
+          </h4>
+        </div>
+        <%= render "marks/mark_book" %>
+      </div>
+    <% end %>
+  </div>
+  <% unless current_user.nil? || @reviewed.present? %>
+    <div>
+      <%= link_to t("views.book.show.addreview"), new_restaurant_review_path(@book),
+        class: "btn btn-info" %>
     </div>
-  </div>
-  <div>
-    <%= link_to t("views.book.show.addreview"), new_restaurant_review_path(@book),
-      class: "btn btn-info" %>
-  </div>
+  <% end %>
   <div style="margin: 20px">
     <%= social_share_button_tag(@book.title) %>
   </div>
