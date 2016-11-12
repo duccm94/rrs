@@ -1,4 +1,15 @@
 <div class="comment">
+  <div style="margin-left: 495px">
+    <% if current_user && comment.user.is_user?(current_user) %>
+      <%= link_to edit_restaurant_review_comment_path(comment.review.book, comment.review, comment) do %>
+        <span class="glyphicon glyphicon-edit"></span>
+      <% end %>
+      <%= link_to restaurant_review_comment_path(comment.review.book, comment.review, comment),
+        method: :delete, data: {confirm: t("views.book.show.delete_comment")} do %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
+    <% end %>
+  </div>
   <%= link_to comment.user do%>
     <%= image_tag comment.user.avatar.url, size: "30x30" %>
     <span><%= comment.user.name %></span>
@@ -8,13 +19,4 @@
     <%= t("views.activities.ago") %>
   </span>
   <div><%= comment.content %></div>
-  <div>
-    <% if comment.user.is_user? (current_user) %>
-      <%= link_to t("views.book.show.edit"),
-        edit_restaurant_review_comment_path(comment.review.book, comment.review, comment) %>
-      <%= link_to t("views.book.show.destroy"),
-        restaurant_review_comment_path(comment.review.book, comment.review, comment),
-        method: :delete, data: {confirm: t("views.book.show.delete_comment")} %>
-    <% end %>
-  </div>
 </div>

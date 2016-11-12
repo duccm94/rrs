@@ -3,11 +3,9 @@
     <span id="review_<%=review.id%>-like_button"
       class="like-activity-button">
       <% if current_user.like_review? review %>
-        <%= render partial: "like_reviews/unlike_button",
-          locals: {review: review} %>
+        <%= render "like_reviews/unlike_button", review: review %>
       <% else %>
-        <%= render partial: "like_reviews/like_button",
-          locals: {review: review} %>
+        <%= render "like_reviews/like_button", review: review %>
       <% end %>
     </span>
   <% end %>

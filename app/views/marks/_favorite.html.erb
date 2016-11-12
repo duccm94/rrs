@@ -1,0 +1,2 @@
+<%= link_to "Favorite", restaurant_marks_url(book, user_book, mark: {user_id: current_user.id}),
+  method: :post, class:"btn btn-success", remote: :true %>

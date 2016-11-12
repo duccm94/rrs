@@ -1,4 +1,15 @@
 <div class="review-card">
+  <div style="margin-left: 542px">
+    <% if current_user && review.user.is_user?(current_user) %>
+      <%= link_to edit_restaurant_review_path(review.book, review) do %>
+        <span class="glyphicon glyphicon-edit"></span>
+      <% end %>
+      <%= link_to restaurant_review_path(review.book, review),
+        method: :delete, data: {confirm: t("views.book.show.delete_confirm")} do %>
+        <span class="glyphicon glyphicon-remove"></span>
+      <% end %>
+    <% end %>
+  </div>
   <%= link_to review.user do %>
     <%= image_tag review.user.avatar.url, size: "30x30" %>
     <span class="user-name">
@@ -18,22 +29,8 @@
     <b><%= t "views.reviews.content" %></b>
     <%= review.content %>
   </div>
-  <div>
-    <% unless current_user.nil? %>
-      <% if review.user.is_user?(current_user) %>
-        <%= link_to t("views.book.show.edit"),
-          edit_restaurant_review_path(review.book, review), class: "btn btn-success"
-          %>
-        <%= link_to t("views.book.show.destroy"),
-          restaurant_review_path(review.book, review),
-          method: :delete, data: {confirm: t("views.book.show.delete_confirm")},
-          class: "btn btn-danger" %>
-      <% end %>
-    <% end %>
-  </div>
   <div class="like-area">
-      <%= render partial: "like_reviews/like_form",
-        locals: {review: review} %>
+      <%= render "like_reviews/like_form", review: review %>
   </div>
   <div style="margin: 20px 0;">
     <% unless current_user.nil?%>
