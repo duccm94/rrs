@@ -1,0 +1,1 @@
+$('#mark_<%= @book.id %>').html('<%= escape_javascript(render "marks/unfavorite", book: @book, marked_book: @user_book) %>');

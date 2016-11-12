@@ -1,6 +1,0 @@
-<%= form_for [@book, @user_book], url: restaurant_marks_url(@book, @user_book), method: :post do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.hidden_field :book_id, value: @book.id %>
-  <%= f.hidden_field :mark_type, value: "favorite" %>
-  <%= f.submit "Favorite", class: "btn btn-success width50" %>
-<% end %>

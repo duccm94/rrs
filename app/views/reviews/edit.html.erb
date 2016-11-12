@@ -1,10 +1,12 @@
 <h1><%= t"views.reviews.edit.editreview"%></h1>
 <%= form_for [@book, @review], url: restaurant_review_url(@book, @review), method: :put do |f| %>
-  <div id="rating-form">
+  <div id="rating-form" data-score="<%= @review.rating %>">
     <label><%= t("views.reviews.new.rating") %></label>
   </div>
   <%= f.label :content %>
   <%= f.text_field :content %>
+  <%= review_image_select(@review) %>
+  <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
   <%= link_to "Back", restaurant_path(@book), class:"btn btn-danger" %>
   <%= f.submit :Update, class:"btn btn-primary width10" %>
 <% end %>

@@ -16,6 +16,9 @@ $(document).on('ready page:load',function(){
 
   $('#rating-form').raty({
     path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score');
+    },
     scoreName: 'review[rating]'
   });
 

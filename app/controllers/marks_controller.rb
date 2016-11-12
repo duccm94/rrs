@@ -5,24 +5,20 @@ class MarksController < ApplicationController
 
   def create
     @user_book = @book.marks.build marks_params
-    if @user_book.save
+    @user_book.mark_type = "favorite"
+    @user_book.save
+    respond_to do |format|
+      format.html
+      format.js
     end
-    redirect_to restaurant_path @user_book.book
-  end
-
-  def edit
-  end
-
-  def update
-    if @user_book.update_attributes marks_params
-      flash[:success] = t "userbook.create.success"
-    end
-    redirect_to restaurant_path @book
   end
 
   def destroy
     if @user_book.destroy
-      redirect_to restaurant_path @book
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 

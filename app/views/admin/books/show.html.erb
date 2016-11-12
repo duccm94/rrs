@@ -3,12 +3,12 @@
     <%= book_image_select(@book) %>
     <div class="caption">
       <h3><%= @book.title %></h3>
-      <h4><b><%= "Address: " %></b> <%= @book.author %></h4>
-      <h4><b><%= "Description: "%></b><%= @book.description %></h4>
+      <h4><b><%= "Address: " %></b></h4> <%= @book.author %>
       <h4>
         <b><%= t "views.book.show.ratescore" %></b>
         <span class="average-review-rating" data-score="<%= @book.rate_score %>"></span>
       </h4>
+      <h4><b><%= "Description: "%></b></h4><%= @book.description %>
     </div>
   </div>
   <%= link_to t("views.admin.book.index.editbutton"), edit_admin_restaurant_url(@book),

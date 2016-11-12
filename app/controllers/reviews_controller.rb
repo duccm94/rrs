@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :load_review, only: [:edit, :update, :destroy]
   before_action :correct_user, only: [:update, :destroy]
   before_action :find_review, only: :create
+  after_action :calculate_score, only: :destroy
 
   def new
     @review = @book.reviews.build
@@ -70,5 +71,15 @@ class ReviewsController < ApplicationController
       flash[:danger] = "You are reviewed this restaurant"
       redirect_to restaurant_path(@book)
     end
+  end
+
+  def calculate_score
+    sum = @book.reviews.reduce(0) {|sum, element| sum + element.rating}
+    if @book.reviews.count == 0
+      average_score = 0
+    else
+      average_score = sum / @book.reviews.count
+    end
+    @book.update_attribute :rate_score, average_score
   end
 end
