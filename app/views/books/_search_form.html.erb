@@ -1,11 +1,8 @@
- <div class="col-md-4 divpadding">
+<div style="position: relative;">
   <%= form_tag current_user.is_admin? ? admin_restaurants_path : restaurants_path,
     method: :get do %>
-    <%= number_field_tag :rate_score, params[:rate_score], step: "0.1",
-      placeholder: t("views.book.index.ratesearch"), class: "form-control" %>
+    <span class ="glyphicon glyphicon-search search-icon" style="position: absolute; top: 10px; left: 277px;"></span>
     <%= text_field_tag :search, params[:search],
-      placeholder: t("views.book.index.valuesearch"), class: "form-control"  %>
-    <%= submit_tag t("views.book.index.search"), class: "btn btn-primary" %>
-
+      placeholder: t("views.book.index.valuesearch"), class: "form-control", style: "width: 300px;" %>
   <% end %>
 </div>

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     if @comment.save
       flash[:success] = t "controllers.flash.common.create_success",
         objects: t("activerecord.model.comment")
-      redirect_to restaurant_path  @restaurant
+      redirect_to restaurant_path  @book
     else
       flash[:danger] = "Type something"
       redirect_to restaurant_path(@book)

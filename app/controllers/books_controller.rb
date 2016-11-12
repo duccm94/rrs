@@ -11,8 +11,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find_by id: params[:id]
-    @reviewed = @book.reviews.find_by user_id: current_user.id
     unless current_user.nil?
+      @reviewed = @book.reviews.find_by user_id: current_user.id
       @marked_book = @book.marks.find_by user_id: current_user.id
       @user_book = @book.marks.build
     end

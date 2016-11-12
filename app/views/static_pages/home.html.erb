@@ -1,44 +1,73 @@
-<div class="panel panel-heading">
-  <center>
-    <h1>
-      <%= t "views.static_pages.home1" %>
-    </h1>
-  </center>
-</div>
-<div class="row">
-  <div class="container">
-    <div class="row">
-      <% @books.each do |book| %>
-        <div class="col-sm-4">
-          <div class="thumbnail book-card">
-            <% if current_user.nil? %>
-              <%= link_to book_image_select(book), restaurant_path(book) , class: "img-responsive home-image" %>
-              <div class="caption">
-                <h3><%= link_to book.title, restaurant_path(book) %></h3>
-                <h4><%= "" %> <%= book.author %></h4>
-                <h4>
-                  <%= t "views.book.show.ratescore" %>
-                  <span class="average-review-rating" data-score="<%= book.rate_score %>"></span>
-                </h4>
-              </div>
-            <% else %>
-              <%= link_to book_image_select(book), current_user.is_admin? ? admin_restaurant_path(book) :
-                restaurant_path(book) , class: "img-responsive home-image" %>
-              <div class="caption">
-                <h3><%= link_to book.title, current_user.is_admin? ? admin_restaurant_path(book) :
-                  restaurant_path(book) %></h3>
-                <h4><%= "" %> <%= book.author %></h4>
-                <h4>
-                  <%= t "views.book.show.ratescore" %>
-                  <span class="average-review-rating" data-score="<%= book.rate_score %>"></span>
-                </h4>
-              </div>
-            <% end %>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+</head>
+<header class="w3-container w3-center w3-padding-32">
+  <h1><b>Restaurant Review</b></h1>
+  <p>Welcome to the blog of <span class="w3-tag">Conflict team</span></p>
+</header>
+<div class="w3-row">
+<div class="w3-col l8 s12">
+  <% @books.each do |book| %>
+    <div class="w3-card-4 w3-margin w3-white">
+      <%= link_to load_image_index(book), restaurant_path(book) %>
+      <div class="w3-container w3-padding-8">
+        <h3><%= link_to book.title, restaurant_path(book) %></h3>
+        <h4>
+          <%= t "views.book.show.ratescore" %>
+          <span class="average-review-rating" data-score="<%= book.rate_score %>"></span>
+        </h4>
+      </div>
+
+      <div class="w3-container">
+        <p><%= book.description %></p>
+        <div class="w3-row">
+          <div class="w3-col m8 s12">
+            <p><button class="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>
+              <%= link_to "SHOW »", restaurant_path(book)%>
+              </b></button></p>
+          </div>
+          <div class="w3-col m4 w3-hide-small">
+            <p><span class="w3-padding-large w3-right"><b>Reviews  </b> <span class="w3-tag"><%= book.reviews.size %></span></span></p>
           </div>
         </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+  <%= will_paginate @books %>
+</div>
+<div class="w3-col l4">
+
+  <!-- Posts -->
+  <div class="w3-card-2 w3-margin">
+    <ul class="w3-ul w3-hoverable w3-white">
+      <% @random_book.each do |book| %>
+        <li class="w3-padding-16">
+          <%= load_image_small_index(book) %>
+          <span class="w3-large"><%= book.title %></span><br>
+          <span><%= book.description %></span>
+        </li>
       <% end %>
-      <%= will_paginate @books %>
-      <div class="clearfix"></div>
+    </ul>
+  </div>
+  <hr>
+
+  <!-- Labels / tags -->
+  <div class="w3-card-2 w3-margin">
+    <div class="w3-container w3-padding">
+      <h4>Tags</h4>
+    </div>
+    <div class="w3-container w3-white">
+    <p><span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">London</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">DIY</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Family</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Shopping</span>
+      <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-light-grey w3-small w3-margin-bottom">Games</span>
+    </p>
     </div>
   </div>
+
+<!-- END Introduction Menu -->
 </div>

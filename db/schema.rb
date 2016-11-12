@@ -36,8 +36,6 @@ ActiveRecord::Schema.define(version: 20161107011000) do
     t.string   "title"
     t.string   "author"
     t.string   "description"
-    t.integer  "number_of_pages"
-    t.datetime "publish_date"
     t.decimal  "rate_score",         default: 0.0
     t.string   "image_file_name"
     t.string   "image_content_type"
