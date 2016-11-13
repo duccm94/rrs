@@ -1,5 +1,5 @@
 class Admin::BooksController < ApplicationController
-  before_action :logged_as_admin, only: [:index, :new, :create]
+  before_action :logged_as_admin
   before_action :get_categories, except: [:index]
 
   def index

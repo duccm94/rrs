@@ -1,5 +1,5 @@
 <div class="review-card">
-  <div style="margin-left: 542px">
+  <div style="margin-left: 673px">
     <% if current_user && review.user.is_user?(current_user) %>
       <%= link_to edit_restaurant_review_path(review.book, review) do %>
         <span class="glyphicon glyphicon-edit"></span>
@@ -39,12 +39,8 @@
         comment: review.user.comments.build %>
     <% end %>
   </div>
-  <div class="comments">
-    <% if review.comments.any? %>
-      <% review.comments.order_by_time.each do |comment| %>
-        <%= render "comments/comment", comment: comment %>
-      <% end %>
-    <% end %>
+  <div class="comments" id="comments_<%= review.id %>">
+    <%= render review.comments.order_by_time, book: @book, review: review %>
   </div>
 </div>
 <div class="clearfix"></div>

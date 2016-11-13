@@ -9,40 +9,37 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @review.comments.build comment_params
+    @comments = @review.comments.order_by_time
     if @comment.save
-      flash[:success] = t "controllers.flash.common.create_success",
-        objects: t("activerecord.model.comment")
-      redirect_to restaurant_path  @book
-    else
-      flash[:danger] = "Type something"
-      redirect_to restaurant_path(@book)
+      respond_to do |format|
+        format.html {redirect_to :back}
+        format.js
+      end
     end
   end
 
   def edit
+    respond_to do |format|
+      format.js
+    end
   end
 
   def update
     if @comment.update comment_params
-      flash[:success] = t "controllers.flash.common.update_success",
-        objects: t("activerecord.model.comment")
-      redirect_to restaurant_path @book
-    else
-      flash[:danger] = t "controllers.flash.common.update_error",
-        objects: t("activerecord.model.comment")
-      render :edit
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
   def destroy
+    @comments = @review.comments.order_by_time
     if @comment && @comment.destroy
-      flash[:success] = t "controllers.flash.common.destroy_success",
-        objects: t("activerecord.model.comment")
-    else
-      flash[:danger] = t "controllers.flash.common.destroy_error",
-        objects: t("activerecord.model.comment")
+      respond_to do |format|
+        format.html {redirect_to :back}
+        format.js
+      end
     end
-    redirect_to restaurant_path @book
   end
 
   private

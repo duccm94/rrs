@@ -38,7 +38,6 @@ Rails.application.routes.draw do
         resources :comments, only: [:destroy]
       end
     end
-    resource :reviews, only: [:destroy]
     resources :requests
     resources :users, only: [:index, :destroy]
   end

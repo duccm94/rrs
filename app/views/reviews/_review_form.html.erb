@@ -1,4 +1,5 @@
 <%= form_for [@book, @review], url:restaurant_reviews_url(@book, @review), method: :post do |f| %>
+  <%= render partial: "shared/error_messages", locals: {object: @review}  %>
   <div id="rating-form">
     <label><%= t("views.reviews.new.rating") %></label>
   </div>

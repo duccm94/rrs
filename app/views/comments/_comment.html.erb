@@ -1,11 +1,12 @@
 <div class="comment">
-  <div style="margin-left: 495px">
+  <div style="margin-left: 633px">
     <% if current_user && comment.user.is_user?(current_user) %>
-      <%= link_to edit_restaurant_review_comment_path(comment.review.book, comment.review, comment) do %>
+      <%= link_to edit_restaurant_review_comment_path(book, review, comment),
+        remote: :true do %>
         <span class="glyphicon glyphicon-edit"></span>
       <% end %>
-      <%= link_to restaurant_review_comment_path(comment.review.book, comment.review, comment),
-        method: :delete, data: {confirm: t("views.book.show.delete_comment")} do %>
+      <%= link_to restaurant_review_comment_path(book, review, comment),
+        method: :delete, data: {confirm: t("views.book.show.delete_comment")}, remote: :true do %>
         <span class="glyphicon glyphicon-remove"></span>
       <% end %>
     <% end %>
@@ -18,5 +19,12 @@
     <%= time_ago_in_words(comment.created_at) %>
     <%= t("views.activities.ago") %>
   </span>
-  <div><%= comment.content %></div>
+  <div id="comment_content_<%= comment.id %>"><%= comment.content %></div>
+  <% if current_user && comment.user.is_user?(current_user) %>
+    <%= form_for [book, review, comment], url: restaurant_review_comment_url(book, review, comment),
+      html: {class: "hidden", id: "comment_form_#{comment.id}"}, method: :put, remote: :true do |f| %>
+      <%= f.text_field :content %>
+    <% end %>
+  <% end %>
+  <hr>
 </div>

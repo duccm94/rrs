@@ -1,4 +1,10 @@
 <div class="comment">
+  <div style="margin-left: 648px">
+    <%= link_to admin_restaurant_review_comment_path(comment.review.book, comment.review, comment),
+      method: :delete, data: {confirm: t("views.book.show.delete_comment")}, remote: :true do %>
+      <span class="glyphicon glyphicon-remove"></span>
+    <% end %>
+  </div>
   <%= link_to comment.user do%>
     <%= image_tag comment.user.avatar.url, size: "30x30" %>
     <span><%= comment.user.name %></span>

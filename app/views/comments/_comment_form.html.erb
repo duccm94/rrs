@@ -1,4 +1,7 @@
-<%= form_for [book, review, comment], url: restaurant_review_comments_url(book, review, comment), method: :post do |f| %>
+<%= form_for [book, review, comment], url: restaurant_review_comments_url(book, review, comment),
+  method: :post, remote: :true do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <%= f.text_field :content, class: "form-control" %>
+  <div id="comment_form_<%= review.id %>">
+    <%= f.text_field :content, class: "form-control" %>
+  </div>
 <% end %>
