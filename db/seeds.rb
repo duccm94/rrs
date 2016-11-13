@@ -21,13 +21,15 @@ Category.create(title: "Food")
 Category.create(title: "Drink")
 Category.create(title: "FastFood")
 Category.create(title: "KFC")
-
-5.times do
+a = 1
+(1..5).each do |m|
   (1..4).each do |n|
+    a = a + 1
     book = Book.create!(category_id: n, title: Faker::Company.name,
       description: Faker::Lorem.paragraph(2, true),
       author: Faker::Address.street_address + "," + Faker::Address.city,
-      rate_score: Faker::Number.between(1, 5))
+      rate_score: Faker::Number.between(1, 5),
+      image: File.open("app/assets/images/#{a}.jpg"))
   end
 end
 
