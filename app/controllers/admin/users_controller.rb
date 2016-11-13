@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController
-  before_action :logged_as_admin, only: [:index, :destroy]
+  before_action :logged_as_admin
   def index
     @users = User.search(params[:name])
   end

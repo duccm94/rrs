@@ -16,6 +16,9 @@
   <%= f.label :address %>
   <%= f.text_field :author, class: "form-control" %>
 
+  <%= f.label :description %>
+  <%= f.text_field :description, class: "form-control" %>
+
   <%= book_image_select(@book) %>
   <%= f.label :image %>
   <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>

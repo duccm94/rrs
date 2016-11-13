@@ -16,8 +16,6 @@ class ReviewsController < ApplicationController
         objects: t("activerecord.model.review")
       redirect_to restaurant_path @book
     else
-      flash[:danger] = t "controllers.flash.common.create_error",
-        objects: t("activerecord.model.review")
       render :new
     end
   end
