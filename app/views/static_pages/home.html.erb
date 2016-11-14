@@ -45,8 +45,10 @@
     <ul class="w3-ul w3-hoverable w3-white">
       <% @random_book.each do |book| %>
         <li class="w3-padding-16">
-          <%= load_image_small_index(book) %>
-          <span class="w3-large"><%= book.title %></span><br>
+          <%= link_to restaurant_path(book) do %>
+            <%= load_image_small_index(book) %>
+            <span class="w3-large"><%= book.title %></span><br>
+          <% end %>
           <span><%= book.description %></span>
         </li>
       <% end %>
