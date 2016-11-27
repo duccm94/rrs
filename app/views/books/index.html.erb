@@ -1,29 +1,27 @@
-<h1><%= "List Restaurant" %></h1>
-<%= render "search_form" %>
-</div><div class="row">
-  <div class="container">
-    <div class="row">
+<div id="main" class="padding">
+  <div class="inner">
+    <h1><%= "List Restaurant" %></h1>
+    <%= render "search_form" %>
+    <section class="tiles">
       <% @books.each do |book| %>
-        <div class="col-sm-4">
-          <div class="thumbnail book-card">
+        <article class="style<%= rand(1..6) %>">
+          <span class="image">
             <%= link_to book_image_select(book), current_user.is_admin? ? admin_restaurant_path(book) : restaurant_path(book) , class: "img-responsive home-image" %>
-            <div class="caption">
-              <h3><%= link_to book.title, restaurant_path(book) %></h3>
-              <h4><%= "" %> <%= book.author %></h4>
-              <h4>
+          </span>
+          <%= link_to restaurant_path(book) do %>
+            <h2><%= book.title %></h2>
+            <div class="content">
+              <p><%= "" %> <%= book.author %></p>
+              <p>
                 <%= t "views.book.show.ratescore" %>
                 <span class="average-review-rating" data-score="<%= book.rate_score %>"></span>
-              </h4>
-              <h4>
-                Reviews: <%= book.reviews.size %>
-              </h4>
-
+              </p>
+              <p>Reviews: <%= book.reviews.size %></p>
             </div>
-          </div>
-        </div>
+          <% end %>
+        </article>
       <% end %>
       <%= will_paginate @books %>
-      <div class="clearfix"></div>
-    </div>
+    </section>
   </div>
 </div>

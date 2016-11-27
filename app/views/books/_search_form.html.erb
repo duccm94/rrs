@@ -1,8 +1,10 @@
 <div style="position: relative;">
   <%= form_tag current_user.is_admin? ? admin_restaurants_path : restaurants_path,
     method: :get do %>
-    <span class ="glyphicon glyphicon-search search-icon" style="position: absolute; top: 10px; left: 277px;"></span>
+    <span class ="glyphicon glyphicon-search search-icon"
+      style="position: absolute; top: 10px; right: calc(25% + 20px);">
+    </span>
     <%= text_field_tag :search, params[:search],
-      placeholder: t("views.book.index.valuesearch"), class: "form-control", style: "width: 300px;" %>
+      placeholder: t("views.book.index.valuesearch"), class: "form-control hatd-search" %>
   <% end %>
 </div>
