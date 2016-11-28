@@ -4,6 +4,11 @@ class CreateReviews < ActiveRecord::Migration
       t.integer :book_id
       t.text :content
       t.decimal :rating
+      t.decimal :rating_place
+      t.decimal :rating_service
+      t.decimal :rating_food
+      t.decimal :rating_price
+
       t.references :user, index: true, foreign_key: true
       t.attachment :image
 

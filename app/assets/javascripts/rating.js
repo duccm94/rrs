@@ -25,5 +25,59 @@ $(document).on('ready page:load',function(){
   $('rating-form').raty({
     path: '/assets/',
     scoreName: 'review[rating]',
-  })
+  });
+
+  $('#rating-form1').raty({
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    scoreName: 'review[rating_place]'
+  });
+
+  $('rating-form1').raty({
+    path: '/assets/',
+    scoreName: 'review[rating_place]',
+  });
+
+  $('#rating-form2').raty({
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    scoreName: 'review[rating_service]'
+  });
+
+  $('rating-form2').raty({
+    path: '/assets/',
+    scoreName: 'review[rating_service]',
+  });
+
+  $('#rating-form3').raty({
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    scoreName: 'review[rating_food]'
+  });
+
+  $('rating-form3').raty({
+    path: '/assets/',
+    scoreName: 'review[rating_food]',
+  });
+
+  $('#rating-form4').raty({
+    path: '/assets/',
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    scoreName: 'review[rating_price]'
+  });
+
+  $('rating-form4').raty({
+    path: '/assets/',
+    scoreName: 'review[rating_price]',
+  });
+
+
 });

@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :restaurants, controller: "books", only: [:index, :show] do
-    resources :reviews, except: [:index] do
+    resources :reviews do
       resources :comments, except: [:index, :show]
     end
     resources :marks, only: [:create, :edit, :update, :destroy]

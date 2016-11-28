@@ -26,16 +26,20 @@ a = 1
   (1..4).each do |n|
     a = a + 1
     book = Book.create!(category_id: n, title: Faker::Company.name,
-      description: Faker::Lorem.paragraph(2, true),
+      description: Faker::Lorem.paragraph(10, false, 10),
       author: Faker::Address.street_address + "," + Faker::Address.city,
-      rate_score: Faker::Number.between(1, 5),
       image: File.open("app/assets/images/#{a}.jpg"))
   end
 end
 
 (4..13).each do |n|
   (1..20).each do |m|
-    Review.create!(book_id: m, content: Faker::Lorem.paragraph(2, true),
-      rating: Faker::Number.between(1, 5), user_id: n)
+    Review.create!(book_id: m, content: Faker::Lorem.paragraph(10, false, 10),
+      rating: Faker::Number.between(1, 5),
+      rating_place: Faker::Number.between(1, 5),
+      rating_service: Faker::Number.between(1, 5),
+      rating_food: Faker::Number.between(1, 5),
+      rating_price: Faker::Number.between(1, 5),
+      user_id: n)
   end
 end

@@ -1,5 +1,4 @@
 class BooksController < ApplicationController
-  before_action :logged_in_user, except: :show
 
   def index
     @books = Book.search(params[:search], params[:rate_score]).order("title")
@@ -11,6 +10,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find_by id: params[:id]
+    @reviews = @book.reviews.order_by_time.paginate page: params[:page], per_page: 5
     unless current_user.nil?
       @reviewed = @book.reviews.find_by user_id: current_user.id
       @marked_book = @book.marks.find_by user_id: current_user.id
