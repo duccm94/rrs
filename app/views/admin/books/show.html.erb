@@ -5,9 +5,26 @@
       <h3><%= @book.title %></h3>
       <h4><b><%= "Address: " %></b></h4> <%= @book.author %>
       <h4>
+        <b><%= "Rate Place" %></b>
+        <span class="average-review-rating" data-score="<%= @book.rate_place %>"></span>
+      </h4>
+      <h4>
+        <b><%= "Rate Service" %></b>
+        <span class="average-review-rating" data-score="<%= @book.rate_service %>"></span>
+      </h4>
+      <h4>
+        <b><%= "Rate Food" %></b>
+        <span class="average-review-rating" data-score="<%= @book.rate_food %>"></span>
+      </h4>
+      <h4>
+        <b><%= "Rate Price" %></b>
+        <span class="average-review-rating" data-score="<%= @book.rate_price %>"></span>
+      </h4>
+      <h4>
         <b><%= t "views.book.show.ratescore" %></b>
         <span class="average-review-rating" data-score="<%= @book.rate_score %>"></span>
       </h4>
+
       <h4><b><%= "Description: "%></b></h4><%= @book.description %>
     </div>
   </div>

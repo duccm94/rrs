@@ -1,4 +1,4 @@
-<div id="mark_<%= @book.id%>">
+<div id="mark_<%= @book.id%>" class="hatd-mark">
   <% if @marked_book && @marked_book.mark_type.present? %>
     <%= render "marks/unfavorite", book: @book, marked_book: @marked_book  %>
   <% else %>

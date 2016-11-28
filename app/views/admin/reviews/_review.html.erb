@@ -17,9 +17,26 @@
   </span>
   <%= review_image_select(review) %>
   <div>
+    <b><%= "Rate Place" %></b>
+    <span class="review-rating" data-score="<%= review.rating_place %>" ></span>
+  </div>
+  <div>
+    <b><%= "Rate Service" %></b>
+    <span class="review-rating" data-score="<%= review.rating_service %>" ></span>
+  </div>
+  <div>
+    <b><%= "Rate Food" %></b>
+    <span class="review-rating" data-score="<%= review.rating_food %>" ></span>
+  </div>
+  <div>
+    <b><%= "Rate Price" %></b>
+    <span class="review-rating" data-score="<%= review.rating_price %>" ></span>
+  </div>
+  <div>
     <b><%= t "views.reviews.rating" %></b>
     <span class="review-rating" data-score="<%= review.rating %>" ></span>
   </div>
+
   <div>
     <b><%= t "views.reviews.content" %></b>
     <%= review.content %>

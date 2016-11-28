@@ -1,27 +1,29 @@
-<div id="main" class="padding">
-  <div class="inner">
-    <h1><%= "List Restaurant" %></h1>
-    <%= render "search_form" %>
-    <section class="tiles">
-      <% @books.each do |book| %>
-        <article class="style<%= rand(1..6) %>">
-          <span class="image">
-            <%= link_to book_image_select(book), current_user.is_admin? ? admin_restaurant_path(book) : restaurant_path(book) , class: "img-responsive home-image" %>
-          </span>
-          <%= link_to restaurant_path(book) do %>
-            <h2><%= book.title %></h2>
-            <div class="content">
-              <p><%= "" %> <%= book.author %></p>
-              <p>
-                <%= t "views.book.show.ratescore" %>
-                <span class="average-review-rating" data-score="<%= book.rate_score %>"></span>
-              </p>
-              <p>Reviews: <%= book.reviews.size %></p>
-            </div>
-          <% end %>
-        </article>
-      <% end %>
-      <%= will_paginate @books %>
-    </section>
+<div class="container">
+  <div id="main" class="padding">
+    <div class="inner">
+      <h1><%= "List Restaurant" %></h1>
+      <%= render "search_form" %>
+      <section class="tiles">
+        <% @books.each do |book| %>
+          <article class="style<%= rand(1..6) %>">
+            <span class="image">
+              <%= link_to book_image_select(book), restaurant_path(book) , class: "img-responsive home-image" %>
+            </span>
+            <%= link_to restaurant_path(book) do %>
+              <h2><%= book.title %></h2>
+              <div class="content">
+                <p><%= "" %> <%= book.author %></p>
+                <p>
+                  <%= t "views.book.show.ratescore" %>
+                  <span class="average-review-rating" data-score="<%= book.rate_score %>"></span>
+                </p>
+                <p>Reviews: <%= book.reviews.size %></p>
+              </div>
+            <% end %>
+          </article>
+        <% end %>
+        <%= will_paginate @books %>
+      </section>
+    </div>
   </div>
 </div>

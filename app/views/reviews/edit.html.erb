@@ -1,7 +1,36 @@
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<style>
+body {font-family: "Times New Roman", Georgia, Serif;}
+h1,h2,h3,h4,h5,h6 {
+    font-family: "Playfair Display";
+    letter-spacing: 5px;
+}
+</style>
+<%= link_to restaurant_path(@book) do %>
+  <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
+    <%= image_tag @book.image, class: "w3-image", alt: "Hamburger Catering", width: "1600", height: "800" %>
+    <div class="w3-display-bottomleft w3-padding-xlarge w3-opacity">
+      <h1 class="w3-xxlarge"><%= @book.title %></h1>
+    </div>
+  </header>
+<% end %>
 <h1><%= t"views.reviews.edit.editreview"%></h1>
 <%= form_for [@book, @review], url: restaurant_review_url(@book, @review), method: :put do |f| %>
+  <div id="rating-form1" data-score="<%= @review.rating_place %>">
+    <label><%= "Place: " %></label>
+  </div>
+  <div id="rating-form2" data-score="<%= @review.rating_service %>">
+    <label><%= "Service: " %></label>
+  </div>
+  <div id="rating-form3" data-score="<%= @review.rating_food %>">
+    <label><%= "Food: " %></label>
+  </div>
+  <div id="rating-form4" data-score="<%= @review.rating_price %>">
+    <label><%= "Price: " %></label>
+  </div>
   <div id="rating-form" data-score="<%= @review.rating %>">
-    <label><%= t("views.reviews.new.rating") %></label>
+    <label><%= "Total: " %></label>
   </div>
   <%= f.label :content %>
   <%= f.text_field :content %>

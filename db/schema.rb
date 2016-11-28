@@ -37,6 +37,10 @@ ActiveRecord::Schema.define(version: 20161107011000) do
     t.string   "author"
     t.string   "description"
     t.decimal  "rate_score",         default: 0.0
+    t.decimal  "rate_place",         default: 0.0
+    t.decimal  "rate_service",       default: 0.0
+    t.decimal  "rate_food",          default: 0.0
+    t.decimal  "rate_price",         default: 0.0
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
@@ -155,6 +159,10 @@ ActiveRecord::Schema.define(version: 20161107011000) do
     t.integer  "book_id"
     t.text     "content"
     t.decimal  "rating"
+    t.decimal  "rating_place"
+    t.decimal  "rating_service"
+    t.decimal  "rating_food"
+    t.decimal  "rating_price"
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"

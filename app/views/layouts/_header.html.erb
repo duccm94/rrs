@@ -12,7 +12,6 @@
             <li><%= link_to "Requests", admin_requests_path %></li>
           <% else %>
             <li><%= link_to "Restaurant", restaurants_path %></li>
-            <li><%= link_to t("app.user"), users_path %></li>
             <li><%= link_to t("app.requests"), requests_path %>
           <% end %>
           <li class="dropdown">
@@ -29,6 +28,7 @@
             </ul>
           </li>
         <% else %>
+          <li><%= link_to "Restaurant", restaurants_path %></li>
           <li><%= link_to t("login"), login_path %></li>
           <li> <%= link_to t("views.static_pages.signup"), signup_path %></li>
         <% end %>

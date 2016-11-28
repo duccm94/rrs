@@ -1,5 +1,5 @@
 <div class="review-card">
-  <div style="margin-left: 673px">
+  <div style="margin-left: 1075px">
     <% if current_user && review.user.is_user?(current_user) %>
       <%= link_to edit_restaurant_review_path(review.book, review) do %>
         <span class="glyphicon glyphicon-edit"></span>
@@ -20,27 +20,26 @@
     <%= time_ago_in_words(review.created_at) %>
     <%= t("views.activities.ago") %>
   </span>
-  <%= review_image_select(review) %>
-  <div>
-    <b><%= t "views.reviews.rating" %></b>
+  <div style="margin-top: 10px;">
+    <%= review_image_select(review) %>
+  </div>
+  <div style="margin-top: 10px;">
+    <b><%= "Rate: " %></b>
     <span class="review-rating" data-score="<%= review.rating %>" ></span>
   </div>
-  <div>
+
+  <div style="margin-top: 10px;">
     <b><%= t "views.reviews.content" %></b>
     <%= review.content %>
   </div>
   <div class="like-area">
       <%= render "like_reviews/like_form", review: review %>
   </div>
-  <div style="margin: 20px 0;">
-    <% unless current_user.nil?%>
+<%= link_to restaurant_review_path(review.book, review) do%>
+    <button class="w3-btn w3-padding w3-section" type="submit">
       Comment
-      <%= render "comments/comment_form",book: review.book, review: review,
-        comment: review.user.comments.build %>
-    <% end %>
-  </div>
-  <div class="comments" id="comments_<%= review.id %>">
-    <%= render review.comments.order_by_time, book: @book, review: review %>
-  </div>
+    </button>
+<% end %>
 </div>
+
 <div class="clearfix"></div>

@@ -1,8 +1,21 @@
 <%= form_for [@book, @review], url:restaurant_reviews_url(@book, @review), method: :post do |f| %>
   <%= render partial: "shared/error_messages", locals: {object: @review}  %>
-  <div id="rating-form">
-    <label><%= t("views.reviews.new.rating") %></label>
+  <div id="rating-form1">
+    <label><%= "Place: " %></label>
   </div>
+  <div id="rating-form2">
+    <label><%= "Service: " %></label>
+  </div>
+  <div id="rating-form3">
+    <label><%= "Food: " %></label>
+  </div>
+  <div id="rating-form4">
+    <label><%= "Price: " %></label>
+  </div>
+  <div id="rating-form">
+    <label><%= "Total: " %></label>
+  </div>
+
   <%= f.label :content %>
   <%= f.text_area :content %>
   <%= f.label :image %>
