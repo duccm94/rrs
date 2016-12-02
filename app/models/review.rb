@@ -6,6 +6,7 @@ class Review < ActiveRecord::Base
   has_many :like_reviews, dependent: :destroy
   has_attached_file :image, styles: {medium: "300x300", large: "450x450#"}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+  validates :title, presence: true
   validates :content, presence: true
   after_save :calculate_score, :create_review_activity
     # :calculate_score_place, :calculate_score_service, :calculate_score_food, :calculate_score_price

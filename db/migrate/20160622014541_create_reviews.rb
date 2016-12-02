@@ -2,6 +2,7 @@ class CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
       t.integer :book_id
+      t.string :title
       t.text :content
       t.decimal :rating
       t.decimal :rating_place

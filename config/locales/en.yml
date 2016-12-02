@@ -60,6 +60,7 @@ en:
       likes: "likes"
     reviews:
       rating: "Rate: "
+      title: "Title: "
       content: "Content: "
       new:
         rating: "Rating"

@@ -34,7 +34,7 @@ end
 
 (4..13).each do |n|
   (1..20).each do |m|
-    Review.create!(book_id: m, content: Faker::Lorem.paragraph(10, false, 10),
+    Review.create!(book_id: m, title: Faker::Company.name, content: Faker::Lorem.paragraph(10, false, 10),
       rating: Faker::Number.between(1, 5),
       rating_place: Faker::Number.between(1, 5),
       rating_service: Faker::Number.between(1, 5),
