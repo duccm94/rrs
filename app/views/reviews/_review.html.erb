@@ -20,6 +20,9 @@
     <%= time_ago_in_words(review.created_at) %>
     <%= t("views.activities.ago") %>
   </span>
+  <div>
+    <b><%= review.title %></b>
+  </div>
   <div style="margin-top: 10px;">
     <%= review_image_select(review) %>
   </div>

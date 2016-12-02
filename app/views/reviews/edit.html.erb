@@ -32,6 +32,8 @@ h1,h2,h3,h4,h5,h6 {
   <div id="rating-form" data-score="<%= @review.rating %>">
     <label><%= "Total: " %></label>
   </div>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
   <%= f.label :content %>
   <%= f.text_field :content %>
   <%= review_image_select(@review) %>
