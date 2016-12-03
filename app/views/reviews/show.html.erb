@@ -67,9 +67,9 @@ h1,h2,h3,h4,h5,h6 {
   <div class="like-area">
       <%= render "like_reviews/like_form", review: @review %>
   </div>
+  <h3 class="comment-title">Comments</h3>
   <div style="margin: 20px 0; margin-top: 10px;">
     <% unless current_user.nil?%>
-      Comment:
       <%= render "comments/comment_form",book: @book, review: @review,
         comment: @review.user.comments.build %>
     <% end %>

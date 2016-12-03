@@ -210,7 +210,7 @@ h1, h2, h3 {
 }
 
 .comments {
-  padding-left: 3em;
+  padding: 0 3em;
 }
 
 .comment {
@@ -253,4 +253,135 @@ h1, h2, h3 {
 
 .hatd-mark {
   display: inline-block;
+}
+
+.input-box {
+  border: 1px solid #26313b;
+  background: rgba(235, 235, 235, 0.61);
+  outline-color: #26313b;
+  font-size: 1em;
+  padding: 0.5em;
+  margin-bottom: 2em;
+}
+
+.textarea-box {
+  display: block;
+  padding: 12px;
+  outline: none;
+  font-size: 1em;
+  font-weight: 300;
+  outline-color: #26313b;
+  color: #000;
+  background: rgba(235, 235, 235, 0.61);
+  border: 1px solid #26313b;
+  height: 120px;
+  margin-bottom: 2em;
+  resize: none;
+}
+
+.left-form {
+  float: left;
+}
+
+.right-form {
+  float: left;
+  margin-left: 80px;
+  width: 72%;
+}
+.new_review {
+  padding: 50px 150px;
+}
+
+.image-input {
+  margin-bottom: 2em;
+}
+
+.right-form label {
+  font-size: 16px;
+}
+
+.right-form input[type="submit"] {
+  font-size: 1em;
+  font-weight: 300;
+  color: #fff;
+  background: #f53f1a;
+  text-transform: uppercase;
+  padding: 0.6em 1em;
+  border: none;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-apperance: none;
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+}
+.right-form input[type="submit"]:hover{
+  background:#26313b;
+}
+
+.comment-title {
+  margin: 80px 0 50px 0;
+}
+
+.new_comment input[type="text"] {
+  display: block;
+  padding: 12px;
+  outline: none;
+  font-size: 1em;
+  font-weight: 300;
+  color: #000;
+  background: rgba(235, 235, 235, 0.61);
+  border: none;
+  float: left;
+  margin-bottom: 1em;
+  margin-left: 16em;
+  border: 1px solid rgba(245, 63, 26, 0.39);
+  width: 60%;
+}
+
+.strator-left {
+  float: left;
+  width: 11%;
+  margin: 0 auto;
+}
+.strator {
+  padding: 1em 1em;
+  background: rgba(0, 0, 0, 0.09);
+  margin: 30px;
+}
+.strator-right {
+  float: right;
+  width: 88%;
+}
+
+.sin {
+  color: #302e2e;
+  font-size: 1em;
+  font-weight: 400;
+  margin: 1em 0;
+  line-height: 1.8em;
+}
+.comment-edit {
+  position: absolute;
+  right: 16%;
+}
+
+.comment-edit-form {
+  margin: 15px 0;
+}
+
+.comment-edit-form input[type="text"] {
+  display: block;
+  padding: 12px;
+  outline: none;
+  font-size: 1em;
+  font-weight: 300;
+  color: #000;
+  background: rgba(235, 235, 235, 0.61);
+  border: none;
+  float: left;
+  margin-bottom: 1em;
+  border: 1px solid rgba(245, 63, 26, 0.39);
+  width: 60%;
 }

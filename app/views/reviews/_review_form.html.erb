@@ -1,27 +1,32 @@
 <%= form_for [@book, @review], url:restaurant_reviews_url(@book, @review), method: :post do |f| %>
   <%= render partial: "shared/error_messages", locals: {object: @review}  %>
-  <div id="rating-form1">
-    <label><%= "Place: " %></label>
-  </div>
-  <div id="rating-form2">
-    <label><%= "Service: " %></label>
-  </div>
-  <div id="rating-form3">
-    <label><%= "Food: " %></label>
-  </div>
-  <div id="rating-form4">
-    <label><%= "Price: " %></label>
-  </div>
-  <div id="rating-form">
-    <label><%= "Total: " %></label>
+  <div class="left-form">
+    <h3>Rating</h3>
+    <div id="rating-form1">
+      <label><%= "Place: " %></label>
+    </div>
+    <div id="rating-form2">
+      <label><%= "Service: " %></label>
+    </div>
+    <div id="rating-form3">
+      <label><%= "Food: " %></label>
+    </div>
+    <div id="rating-form4">
+      <label><%= "Price: " %></label>
+    </div>
+    <div id="rating-form">
+      <label><%= "Total: " %></label>
+    </div>
   </div>
 
-  <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <%= f.label :image %>
-  <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-  <%= f.submit :Submit , class: "btn btn-success" %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="right-form">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "input-box" %>
+    <%= f.label :content %>
+    <%= f.text_area :content, class: "textarea-box" %>
+    <%= f.label :image %>
+    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image-input" %>
+    <%= f.submit :Submit , class: "btn btn-success" %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
 <% end %>

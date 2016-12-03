@@ -1,31 +1,36 @@
-<div class="comment">
-  <div style="margin-left: 1010px">
-    <% if current_user && comment.user.is_user?(current_user) %>
-      <%= link_to edit_restaurant_review_comment_path(book, review, comment),
-        remote: :true do %>
-        <span class="glyphicon glyphicon-edit"></span>
-      <% end %>
-      <%= link_to restaurant_review_comment_path(book, review, comment),
-        method: :delete, data: {confirm: t("views.book.show.delete_comment")}, remote: :true do %>
-        <span class="glyphicon glyphicon-remove"></span>
-      <% end %>
+<div class="strator">
+  <h5>
+    <%= link_to comment.user do%>
+      <%= comment.user.name %>
     <% end %>
-  </div>
-  <%= link_to comment.user do%>
-    <%= image_tag comment.user.avatar.url, size: "30x30" %>
-    <span><%= comment.user.name %></span>
-  <% end %>
-  <span class="time-ago-in-words pull-right">
-    <%= time_ago_in_words(comment.created_at) %>
-    <%= t("views.activities.ago") %>
-  </span>
-  <div id="comment_content_<%= comment.id %>" style="margin-top: 10px;"><%= comment.content %></div>
-  <div style="margin-top: 20px">
-    <% if current_user && comment.user.is_user?(current_user) %>
-      <%= form_for [book, review, comment], url: restaurant_review_comment_url(book, review, comment),
-        html: {class: "hidden", id: "comment_form_#{comment.id}"}, method: :put, remote: :true do |f| %>
-        <%= f.text_field :content %>
+    <span class="comment-edit">
+      <% if current_user && comment.user.is_user?(current_user) %>
+        <%= link_to edit_restaurant_review_comment_path(book, review, comment),
+          remote: :true do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to restaurant_review_comment_path(book, review, comment),
+          method: :delete, data: {confirm: t("views.book.show.delete_comment")}, remote: :true do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </span>
+  </h5>
+  <p><%= time_ago_in_words(comment.created_at) %>
+    <%= t("views.activities.ago") %></p>
+    <div class="strator-left">
+      <%= link_to comment.user do%>
+        <%= image_tag comment.user.avatar.url, size: "83x83" %>
+      <% end %>
+    </div>
+    <div class="strator-right">
+      <p class="sin" id="comment_content_<%= comment.id %>"><%= comment.content %></p>
+      <% if current_user && comment.user.is_user?(current_user) %>
+        <%= form_for [book, review, comment], url: restaurant_review_comment_url(book, review, comment),
+          html: {class: "hidden comment-edit-form", id: "comment_form_#{comment.id}"}, method: :put, remote: :true do |f| %>
+          <%= f.text_field :content %>
+        <% end %>
+      <% end %>
+    </div>
+  <div class="clearfix"></div>
 </div>
