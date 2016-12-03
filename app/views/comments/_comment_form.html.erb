@@ -2,6 +2,6 @@
   method: :post, remote: :true do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div id="comment_form_<%= review.id %>">
-    <%= f.text_field :content %>
+    <%= f.text_field :content, placeholder: "Enter comment ..." %>
   </div>
 <% end %>
