@@ -1,47 +1,68 @@
-<div class="review-card">
-  <div style="margin-left: 1075px">
-    <% if current_user && review.user.is_user?(current_user) %>
-      <%= link_to edit_restaurant_review_path(review.book, review) do %>
-        <span class="glyphicon glyphicon-edit"></span>
-      <% end %>
-      <%= link_to restaurant_review_path(review.book, review),
-        method: :delete, data: {confirm: t("views.book.show.delete_confirm")} do %>
-        <span class="glyphicon glyphicon-remove"></span>
+<div class="blog-artical">
+  <div class="blog-artical-info">
+    <% if review.image.present? %>
+      <%= link_to restaurant_review_path(review.book, review) do %>
+        <%= image_tag review.image, class: "blog-artical-info-img" %>
       <% end %>
     <% end %>
-  </div>
-  <%= link_to review.user do %>
-    <%= image_tag review.user.avatar.url, size: "30x30" %>
-    <span class="user-name">
-      <%= review.user.name %>
-    </span>
-  <% end %>
-  <span class="time-ago-in-words pull-right">
-    <%= time_ago_in_words(review.created_at) %>
-    <%= t("views.activities.ago") %>
-  </span>
-  <div style="margin-top: 10px;">
-    <%= review_image_select(review) %>
-  </div>
-  <div style="margin-top: 10px;">
-    <b><%= "Rate: " %></b>
-    <span class="review-rating" data-score="<%= review.rating %>" ></span>
+    <div class="blog-artical-info-head">
+      <h2>
+        <%= link_to review.title, restaurant_review_path(review.book, review) %>
+      </h2>
+      <h6>
+        <%= time_ago_in_words(review.created_at) %>
+        <%= t("views.activities.ago") %>
+      </h6>
+    </div>
+    <div style="float: right;">
+      <% if current_user && review.user.is_user?(current_user) %>
+        <%= link_to edit_restaurant_review_path(review.book, review) do %>
+          <span class="glyphicon glyphicon-edit"></span>
+        <% end %>
+        <%= link_to restaurant_review_path(review.book, review),
+          method: :delete, data: {confirm: t("views.book.show.delete_confirm")} do %>
+          <span class="glyphicon glyphicon-remove"></span>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="clearfix"> </div>
+    <%= link_to review.user do %>
+      <%= image_tag review.user.avatar.url, size: "50x50" %>
+      <span class="user-name">
+        <%= review.user.name %>
+      </span>
+    <% end %>
+
+    <div style="margin-top: 10px;">
+      <b><%= "Rate: " %></b>
+      <span class="review-rating" data-score="<%= review.rating %>" ></span>
+    </div>
+
+    <div class="like-area">
+        <%= render "like_reviews/like_form", review: review %>
+    </div>
+    <div class="blog-artical-info-text">
+      <p>
+        <%= review.content %>
+      </p>
+    </div>
+
+    <div class="artical-links">
+        <ul>
+          <li><small> </small><span><%= review.created_at %></span></li>
+          <li>
+            <a href="<%= restaurant_review_path(review.book, review) %>">
+              <small class="no"> </small><span><%= review.comments.count %> comments</span>
+            </a>
+          </li>
+          <li>
+            <a href="<%= restaurant_review_path(review.book, review) %>">
+              <small class="posts"> </small><span>View posts</span>
+            </a>
+          </li>
+        </ul>
+       </div>
   </div>
 
-  <div style="margin-top: 10px;">
-    <b><%= t "views.reviews.title" %></b>
-    <%= review.title %></br>
-    <b><%= t "views.reviews.content" %></b>
-    <%= review.content %>
-  </div>
-  <div class="like-area">
-      <%= render "like_reviews/like_form", review: review %>
-  </div>
-<%= link_to restaurant_review_path(review.book, review) do%>
-    <button class="w3-btn w3-padding w3-section" type="submit">
-      Comment
-    </button>
-<% end %>
+  <div class="clearfix"> </div>
 </div>
-
-<div class="clearfix"></div>

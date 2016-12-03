@@ -292,4 +292,6 @@ en:
       about_x_months:
         one:   "about 1m"
         other: "about %{count}m"
+  leaveacomment: "Leave a comment"
+  addcomment: "Add a comment"
 

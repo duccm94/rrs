@@ -9,7 +9,7 @@ h1,h2,h3,h4,h5,h6 {
 </style>
 <%= link_to restaurant_path(@book) do %>
   <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-    <%= image_tag @book.image, class: "w3-image", alt: "Hamburger Catering", width: "1600", height: "800" %>
+    <%= image_tag @book.image, class: "restaurant-image", alt: "Hamburger Catering" %>
     <div class="w3-display-bottomleft w3-padding-xlarge w3-opacity">
       <h1 class="w3-xxlarge"><%= @book.title %></h1>
     </div>
@@ -17,27 +17,31 @@ h1,h2,h3,h4,h5,h6 {
 <% end %>
 <h1><%= t"views.reviews.edit.editreview"%></h1>
 <%= form_for [@book, @review], url: restaurant_review_url(@book, @review), method: :put do |f| %>
-  <div id="rating-form1" data-score="<%= @review.rating_place %>">
-    <label><%= "Place: " %></label>
+  <div class="left-form">
+    <div id="rating-form1" data-score="<%= @review.rating_place %>">
+      <label><%= "Place: " %></label>
+    </div>
+    <div id="rating-form2" data-score="<%= @review.rating_service %>">
+      <label><%= "Service: " %></label>
+    </div>
+    <div id="rating-form3" data-score="<%= @review.rating_food %>">
+      <label><%= "Food: " %></label>
+    </div>
+    <div id="rating-form4" data-score="<%= @review.rating_price %>">
+      <label><%= "Price: " %></label>
+    </div>
+    <div id="rating-form" data-score="<%= @review.rating %>">
+      <label><%= "Total: " %></label>
+    </div>
   </div>
-  <div id="rating-form2" data-score="<%= @review.rating_service %>">
-    <label><%= "Service: " %></label>
+  <div class="right-form">
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "input-box" %>
+    <%= f.label :content %>
+    <%= f.text_field :content, class: "textarea-box" %>
+    <%= review_image_select(@review) %>
+    <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png", class: "image-input" %>
+    <%= link_to "Back", restaurant_path(@book), class:"btn btn-danger" %>
+    <%= f.submit :Update, class:"btn btn-primary width10" %>
   </div>
-  <div id="rating-form3" data-score="<%= @review.rating_food %>">
-    <label><%= "Food: " %></label>
-  </div>
-  <div id="rating-form4" data-score="<%= @review.rating_price %>">
-    <label><%= "Price: " %></label>
-  </div>
-  <div id="rating-form" data-score="<%= @review.rating %>">
-    <label><%= "Total: " %></label>
-  </div>
-  <%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %>
-  <%= f.label :content %>
-  <%= f.text_field :content %>
-  <%= review_image_select(@review) %>
-  <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
-  <%= link_to "Back", restaurant_path(@book), class:"btn btn-danger" %>
-  <%= f.submit :Update, class:"btn btn-primary width10" %>
 <% end %>

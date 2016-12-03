@@ -9,7 +9,7 @@ h1,h2,h3,h4,h5,h6 {
 </style>
 <%= link_to restaurant_path(@book) do %>
   <header class="w3-display-container w3-content w3-wide" style="max-width:1600px;min-width:500px" id="home">
-    <%= image_tag @book.image, class: "w3-image", alt: "Hamburger Catering", width: "1600", height: "800" %>
+    <%= image_tag @book.image, class: "restaurant-image", alt: "Hamburger Catering" %>
     <div class="w3-display-bottomleft w3-padding-xlarge w3-opacity">
       <h1 class="w3-xxlarge"><%= @book.title %></h1>
     </div>
