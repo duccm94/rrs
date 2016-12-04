@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   delete "logout" => "sessions#destroy"
 
   resources :users
+  resources :notifications
   resources :restaurants, controller: "books", only: [:index, :show] do
     resources :reviews do
       resources :comments, except: [:index, :show]

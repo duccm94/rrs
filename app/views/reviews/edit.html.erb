@@ -17,7 +17,9 @@ h1,h2,h3,h4,h5,h6 {
 <% end %>
 <h1><%= t"views.reviews.edit.editreview"%></h1>
 <%= form_for [@book, @review], url: restaurant_review_url(@book, @review), method: :put do |f| %>
+  <%= render partial: "shared/error_messages", locals: {object: @review}  %>
   <div class="left-form">
+    <h3>Rating</h3>
     <div id="rating-form1" data-score="<%= @review.rating_place %>">
       <label><%= "Place: " %></label>
     </div>

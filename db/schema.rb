@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161107011000) do
+ActiveRecord::Schema.define(version: 20161204080247) do
 
   create_table "activities", force: :cascade do |t|
     t.integer  "user_id"
@@ -100,6 +100,16 @@ ActiveRecord::Schema.define(version: 20161107011000) do
   end
 
   add_index "marks", ["user_id", "book_id"], name: "index_marks_on_user_id_and_book_id", unique: true
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.integer  "recipient_id"
+    t.integer  "content"
+    t.integer  "review_id"
+    t.boolean  "seen",         default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "overall_averages", force: :cascade do |t|
     t.integer  "rateable_id"

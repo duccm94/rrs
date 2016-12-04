@@ -1,0 +1,14 @@
+<div class="seen">
+  <%= link_to notification_path(notification), method: :put do %>
+    <b><%= notification.owner.name %></b>
+    <% if notification.follow? %>
+      <%= "follow you" %>
+    <% elsif notification.like? %>
+      <%= "like your review: "%><b><%= notification.review.title %></b>
+    <% elsif notification.comment? %>
+      <%= "comment on your review: "%><b><%= notification.review.title %></b>
+    <% end %>
+    <hr>
+    <div class="clear-fix"></div>
+  <% end %>
+</div>
