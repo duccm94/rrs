@@ -1,7 +1,11 @@
-<%= form_for [book, review, comment], url: restaurant_review_comments_url(book, review, comment),
+<div class="comment">
+  <h3><%= t "leaveacomment" %></h3>
+  <%= form_for [book, review, comment], url: restaurant_review_comments_url(book, review, comment),
   method: :post, remote: :true do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <div id="comment_form_<%= review.id %>">
-    <%= f.text_field :content, placeholder: "Enter comment ..." %>
-  </div>
-<% end %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.text_area :content, placeholder: "Enter comment ...", id: "comment_content_#{review.id}" %>
+    <div class="smt1">
+      <%= f.submit t(:addcomment), class: "btn btn-primary margin-top" %>
+    </div>
+  <% end %>
+</div>

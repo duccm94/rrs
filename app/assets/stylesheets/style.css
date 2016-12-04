@@ -1,0 +1,170 @@
+
+.blog-artical{
+  margin-bottom:2em;
+  background-image: url(sos.png);
+  padding: 1em;
+}
+.blog-artical-info-img {
+  width: 100%;
+  height: 364px;
+  border: 1px solid #D6D6D6;
+  padding: 1em;
+  margin: 0;
+}
+.blog-artical-info-head h2 a{
+  color: #26313b;
+  font-size: 0.8125em;
+  margin: 0.5em 0;
+  display: block;
+  font-weight:700;
+  text-decoration: none;
+  text-transform:captalized;
+  font-family: 'Libre Baskerville', serif;
+}
+.blog-artical-info-head ul li{
+  display:inline-block;
+}
+.blog-artical-info-head ul li span{
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  background: url(/assets/sos.png) no-repeat 0px 0px;
+  vertical-align: middle;
+  margin-right: 0.5em;
+}
+.blog-artical-info-head ul li a,.blog-artical-info-head ul li{
+  color: #777;
+  font-size:1em;
+  display: inline-block;
+  padding: 0 0.2em;
+  transition:0.5s all;
+  -webkit-transition:0.5s all;
+  -moz-transition:0.5s all;
+  -o-transition:0.5s all;
+}
+.blog-artical-info-head h2 a:hover{
+  color:#f53f1a;
+}
+.blog-artical-info-text p{
+  color: #302e2e;
+  font-size: 1em;
+  line-height: 1.8em;
+  margin: 1em 0;
+}
+.blog-artical-info-text p a{
+  color: #f53f1a;
+  margin-left: 0.4em;
+  font-size: 0.875em;
+  vertical-align: middle;
+}
+.artical-links {
+  padding: 10px 0px;
+  border: 1px dashed rgba(0, 0, 0, 0.61);
+  border-left: none;
+  margin-top: 5px;
+  border-right: none;
+}
+.artical-links ul {
+  padding: 0;
+}
+.artical-links ul li a {
+  padding-left: 6px;
+}
+.artical-links ul li small {
+  background: url(/assets/img-sprite.png)no-repeat -9px -2px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 3px;
+  vertical-align: middle;
+}
+.artical-links ul li a {
+  color: #666;
+  padding-left: 20px;
+}
+.artical-links ul li a:hover{
+  color:#f53f1a;
+}
+.artical-links ul li {
+  display: inline-block;
+}
+.artical-links ul li a span {
+  vertical-align: top;
+}
+.artical-links ul li small.no {
+  background-position: -65px -4px;
+}
+.artical-links ul li small.admin {
+  background-position: -39px -3px;
+}
+.artical-links ul li small.link {
+  background-position: -116px -4px;
+}
+.artical-links ul li small.posts {
+  background-position: -91px -3px;
+}
+.blog h6 {
+  color: #666666;
+  font-size: 0.5em;
+  font-weight: 400;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 300px;
+}
+/*comment*/
+.comment textarea {
+  display: block;
+  width: 98%;
+  padding: 12px;
+  outline: none;
+  font-size: 1em;
+  font-weight: 300;
+ color: #000;
+  background:rgba(235, 235, 235, 0.61);
+  border: 1px solid rgba(245, 63, 26, 0.39);
+   height: 170px;
+  resize: none;
+  margin:1em 0;
+}
+.comment input[type="submit"] {
+  font-size: 1em;
+  font-weight: 300;
+  color: #fff;
+  background: #f53f1a;
+  text-transform: uppercase;
+  padding: 0.6em 1em;
+  border: none;
+  transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  -webkit-apperance: none;
+  font-family: 'Open Sans', sans-serif;
+  outline: none;
+}
+.comment input[type="submit"]:hover{
+  background:#26313b;
+}
+.smt1 {
+  width: 200px;
+  height: 200px;
+}
+/* footer */
+.footer {
+  padding: 2em 1em;
+  border: 1px solid #D8DADC;
+  margin: 2em 0 0;
+}
+
+.copyright {
+  margin: 2em 0 0;
+  text-align: center;
+}
+.copyright p {
+  color: #302e2e;
+  font-size: 1em;
+  line-height: 1.8em;
+  margin: 0;
+}

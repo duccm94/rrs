@@ -1,2 +1,2 @@
 $('#comments_<%= @review.id %>').html('<%= escape_javascript(render @comments, review: @review, book: @review.book ) %>');
-$('#comment_content').val('');
+$('#comment_content_<%= @review.id %>').val('');
