@@ -28,6 +28,7 @@ gem "coffee-rails", "~> 4.1.0"
 #Add avatar for user
 gem "carrierwave", "0.10.0"
 gem "mini_magick", "3.8.0"
+gem "font-awesome-rails"
 
 # Use jquery as the JavaScript library
 gem "jquery-rails"
