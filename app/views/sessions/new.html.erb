@@ -1,26 +1,30 @@
 <title><%= t "views.session.new.login" %></title>
-<h1><%= t "views.session.new.login" %></h1>
+<div class="container-fluid">
+  <div class="hatd-login">
+    <section id="content">
+      <%= form_for(:session, url: login_path) do |f| %>
+        <h1><%= t "views.session.new.login" %></h1>
+        <div>
+          <input type="email" placeholder="Username" required="" id="username" name="session[email]" />
+        </div>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
+        <div>
+          <input type="password" placeholder="Password" required="" id="password" name="session[password]" />
+        </div>
 
-      <%= f.label :email %>
-      <%= f.email_field :email, class: "form-control" %>
+        <div style="margin-top: 25px">
+          <%= f.label :remember_me, class: "checkbox inline" do %>
+          <%= f.check_box :remember_me %>
+            <span><%= t "views.session.new.remember" %></span>
+          <% end %>
+        </div>
 
-      <%= f.label :password %>
-      <%= f.password_field :password, class: "form-control" %>
-
-      <%= f.label :remember_me, class: "checkbox inline" do %>
-      <%= f.check_box :remember_me %>
-        <span><%= t "views.session.new.remember" %></span>
+        <div>
+          <%= f.submit t("views.session.new.login"), class: "btn btn-primary" %>
+          <%= link_to t("views.session.new.signupnow"), signup_path %>
+        </div>
       <% end %>
 
-      <%= f.submit t("views.session.new.login"), class: "btn btn-primary" %>
-    <% end %>
-    <p>
-      <%= t "views.session.new.newuser" %>
-      <%= link_to t("views.session.new.signupnow"), signup_path %>
-    </p>
-  </div>
+    </section><!-- content -->
+  </div><!-- container -->
 </div>
